@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 require_relative 'server/server'
-require_relative '../client/rat'
+require_relative 'client/rat'
 require 'optparse'
 
 options = {}

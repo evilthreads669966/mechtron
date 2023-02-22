@@ -32,13 +32,3 @@ else
   puts "Please specify which mode you would like."
   exit 1
 end
-
-=begin
-port = 6666
-
-if ARGV[0]
-  port = ARGV[0]
-end
-
-
-=end

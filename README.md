@@ -1,5 +1,5 @@
 # Mechtron
-A RAT tool for linux. (Windows .exe format coming soon)
+A RAT tool.
 
 ## Commands
 clients<br>

@@ -1,5 +1,5 @@
 # Mechtron
-A RAT tool. Mechtron runs on port 6666.
+A RAT tool. Mechtron runs on port 6666. It can handle multiple clients, but one session at a time. Meaning you can have one reverse shell instance at a time.
 
 ## Commands
 clients<br>

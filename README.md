@@ -1,5 +1,5 @@
 # Mechtron
-A RAT tool.
+A RAT tool. Mechtron runs on port 6666.
 
 ## Commands
 clients<br>
@@ -8,7 +8,10 @@ session IP
 commands
 
 ## Instructions
-```runner.rb``` has two options for server and client  mode. Run with ```-c IP``` for client mode and ```-s``` for server mode. You can have one server with multiple clients. Mechtron uses port 6666.
+***Client -*** ```./mechtron.rb -c IP```<br>
+***Server -*** ```./mechtron.rb -s```<br>
+***Help -*** ```./mechtron.rb -h```
+
 ## Example Usage
 
 ### Server

@@ -18,17 +18,13 @@ OptionParser.new do |opts|
   end
 
 end.parse!
-if options.has_key?(:server) && options.has_key?(:client)
-  puts 'invalid program arguments'
-  exit! 1
-end
-if options.has_key? :server
+if options.has_key?(:server) && !options.has_key?(:client)
   server = Server.new
   server.start
-elsif options.has_key? :client
+elsif options.has_key?(:client) && !options.has_key?(:server)
   ip = options[:client]
   rat(ip)
 else
-  puts "Please specify which mode you would like."
+  puts "Invalid program parameters"
   exit 1
 end

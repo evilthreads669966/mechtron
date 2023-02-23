@@ -11,13 +11,13 @@ OptionParser.new do |opts|
   end
   opts.on('-c', '--client IP' ,'Client mode and the IP address to connect to') do |c|
     options[:client] = c
-    opts.on('-h', '--help', "Help menu") do
-      puts opts
-      exit
-    end
   end
-
+  opts.on('-h', '--help', "Help menu") do
+    puts opts
+    exit
+  end
 end.parse!
+
 if options.has_key?(:server) && !options.has_key?(:client)
   server = Server.new
   server.start

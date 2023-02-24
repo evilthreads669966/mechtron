@@ -28,12 +28,12 @@ class Server
   # handles user input for executing commands
   def handle_commands
     loop do
-      command, ip, file = STDIN.gets.chomp.downcase.split(" ")
-      if command == 'exit'
+      command, ip, file = STDIN.gets.chomp.split(" ")
+      if command.downcase == 'exit'
         puts 'exiting the server..'
         break
       end
-      case command
+      case command.downcase
       when "clients"
         print_clients
       when 'commands'

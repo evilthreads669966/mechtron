@@ -22,11 +22,11 @@ starting server on port 6666
 127.0.0.1 joined
 session 127.0.0.1
 session started with 127.0.0.1
-whoami
+$ whoami
 chrisbasinger
-which ruby
+$ which ruby
 /bin/ruby
-exit
+$ exit
 closing session
 exit
 exiting the server..

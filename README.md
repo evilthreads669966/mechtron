@@ -3,9 +3,9 @@ A RAT tool. Mechtron runs on port 6666. It can handle multiple clients, but one 
 
 ## Commands
 clients<br>
-session IP
-<br>
-commands
+session IP<br>
+download IP file_path
+commands<br>
 
 ## Instructions
 ***Client -*** ```./mechtron.rb -c IP```<br>
@@ -28,6 +28,9 @@ $ which ruby
 /bin/ruby
 $ exit
 closing session
+download 127.0.0.1 /home/chrisbasinger/dos.sh
+Starting download
+download finished
 exit
 exiting the server..
 

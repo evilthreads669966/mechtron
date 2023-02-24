@@ -38,5 +38,5 @@ Process finished with exit code 0
 ### Client
 ```
 chmod +x rat.rb
-./mechtron -c 127.0.0.1
+sudo ./mechtron -c 127.0.0.1
 ```

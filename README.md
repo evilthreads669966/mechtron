@@ -28,7 +28,7 @@ $ which ruby
 /bin/ruby
 $ exit
 closing session
-download 127.0.0.1 /home/chrisbasinger/dos.sh
+get 127.0.0.1 /home/chrisbasinger/dos.sh
 Starting download
 download finished
 exit

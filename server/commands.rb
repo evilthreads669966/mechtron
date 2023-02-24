@@ -8,6 +8,7 @@ class Commands
     client.write 'session'
     puts "session started with #{client.to_s}"
     loop do
+      print '$ '
       command = STDIN.gets.chomp
       if command.downcase == 'exit'
         puts 'closing session'

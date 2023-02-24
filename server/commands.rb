@@ -16,8 +16,7 @@ class Commands
         break
       end
       client.write command
-      read = true
-      while(read)
+      loop do
         response = client.read
         if response == 'done'
           break

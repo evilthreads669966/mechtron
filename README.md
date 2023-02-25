@@ -6,7 +6,7 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
 ## Commands
 clients<br>
 session IP<br>
-get IP FILE_PATH<br>
+get IP FILE_PATH - text files only<br>
 commands<br>
 
 ## Instructions
@@ -30,7 +30,7 @@ $ which ruby
 /bin/ruby
 $ exit
 closing session
-download 127.0.0.1 /home/chrisbasinger/dos.sh
+get 127.0.0.1 /home/chrisbasinger/dos.sh
 Starting download
 download finished
 exit

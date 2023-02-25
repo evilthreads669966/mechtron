@@ -22,9 +22,9 @@ commands<br>
 chmod +x mechtron.rb
 ./mechtron -s
 starting server on port 6666
-127.0.0.1 joined
+[0] 127.0.0.1 joined
 session 127.0.0.1
-session started with 127.0.0.1
+session started with [0] 127.0.0.1
 $ whoami
 chrisbasinger
 $ which ruby

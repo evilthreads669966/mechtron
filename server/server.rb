@@ -39,11 +39,7 @@ class Server
       when 'commands'
         Commands.list_commands
       when 'session'
-        if ip.include? '.'
-          client = findClientByIp(ip)
-        else
-          client = findClientById(ip)
-        end
+        client = findClientByIp(ip)
         Commands.session client
       when 'get'
         client = findClientByIp(ip)

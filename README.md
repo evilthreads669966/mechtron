@@ -12,7 +12,7 @@ commands<br>
 
 ## Instructions
 ***Client Mode -*** ```./mechtron.rb -c IP```<br>
-***Server Mode-*** ```./mechtron.rb -s```<br>
+***Server Mode -*** ```./mechtron.rb -s```<br>
 ***Help -*** ```./mechtron.rb -h```
 
 ## Example Usage

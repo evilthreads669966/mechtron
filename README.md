@@ -30,7 +30,7 @@ $ which ruby
 /bin/ruby
 $ exit
 closing session
-get 127.0.0.1 /home/chrisbasinger/dos.sh text
+get 127.0.0.1 /home/chrisbasinger/script.sh text
 Starting download
 download finished
 get 127.0.0.1 /home/chrisbasinger/picture.jpg binary

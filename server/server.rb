@@ -28,7 +28,7 @@ class Server
   # handles user input for executing commands
   def handle_commands
     loop do
-      command, ip, file = STDIN.gets.chomp.split(" ")
+      command, ip, file, format = STDIN.gets.chomp.split(" ")
       if command.downcase == 'exit'
         puts 'exiting the server..'
         break
@@ -43,7 +43,7 @@ class Server
         Commands.session client
       when 'get'
         client = findClientByIp(ip)
-        Commands.get(client, file)
+        Commands.get(client, file, format)
       end
     end
   end

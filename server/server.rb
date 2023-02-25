@@ -40,13 +40,24 @@ class Server
         Commands.list_commands
       when 'session'
         client = findClientByIp(ip)
-        Commands.session client
+        if client
+          Commands.session client
+        else
+          puts 'client does not exist'
+        end
       when 'get'
         client = findClientByIp(ip)
-        Commands.get(client, file, format)
+        if client
+          Commands.get(client, file, format)
+        else
+          puts 'client does not exist'
+        end
       when 'put'
-        client = findClientByIp(ip)
-        Commands.put(client, file, format)
+        if client
+          Commands.put(client, file, format)
+        else
+          puts 'client does not exist'
+        end
       end
     end
   end
@@ -58,7 +69,6 @@ class Server
         return client
       end
     end
-    puts 'no clients found'
     return nil
   end
 

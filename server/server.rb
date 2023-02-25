@@ -39,7 +39,11 @@ class Server
       when 'commands'
         Commands.list_commands
       when 'session'
-        client = findClientByIp(ip)
+        if ip.include? '.'
+          client = findClientByIp(ip)
+        else
+          client = findClientById(ip)
+        end
         Commands.session client
       when 'get'
         client = findClientByIp(ip)
@@ -60,25 +64,6 @@ class Server
     end
     puts 'no clients found'
     return nil
-  end
-
-  def findClientById(id)
-    @clients.each do |client|
-      if client.id == id
-        return client
-      end
-    end
-    nil
-  end
-
-  # adds a client to the server
-  def addClient(client)
-    @clients << client
-  end
-
-  # removes a client from the server
-  def removeClient(client)
-    @clients >> client
   end
 
   # Prints out a list of the connected clients

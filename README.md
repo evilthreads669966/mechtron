@@ -6,8 +6,8 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
 ## Commands
 clients<br>
 session IP<br>
-get IP FILE_PATH FORMAT - formats are binary & text<br>
-put IP FILE_PATH FORMAT - formats are binary & text<br>
+get IP FILE FORMAT - formats are binary & text<br>
+put IP FILE FORMAT - formats are binary & text<br>
 commands<br>
 
 ## Instructions

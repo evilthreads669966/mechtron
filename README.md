@@ -34,6 +34,8 @@ get 127.0.0.1 /home/chrisbasinger/script.sh text
 Starting download
 download finished
 get 127.0.0.1 /home/chrisbasinger/picture.jpg binary
+Starting download
+download finished
 exit
 exiting the server..
 

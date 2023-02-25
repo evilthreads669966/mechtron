@@ -44,6 +44,9 @@ class Server
       when 'get'
         client = findClientByIp(ip)
         Commands.get(client, file, format)
+      when 'put'
+        client = findClientByIp(ip)
+        Commands.put(client, file, format)
       end
     end
   end

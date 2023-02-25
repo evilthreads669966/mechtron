@@ -48,6 +48,17 @@ class Commands
     puts 'download finished'
   end
 
+  def self.put(client, file, format)
+    client.write "put #{file.split('/').last} #{format}"
+
+    file = File.open(file, 'r')
+    content = file.read
+    file.close
+    client.write content
+    client.write 'done'
+    puts 'upload finished'
+  end
+
   # print out a list of all commands
   def self.list_commands
     @@commands.each { |cmd| puts cmd}

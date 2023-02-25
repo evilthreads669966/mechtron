@@ -28,10 +28,15 @@ class Commands
 
   def self.get(client, file, format)
     client.write "get #{file} #{format}"
+    if file.include? '/'
+      splitter = '/'
+    else
+      splitter = '\\'
+    end
     if format == 'binary'
-      file = File.new(file.split('/').last, 'wb')
+      file = File.new(file.split(splitter).last, 'wb')
     elsif format == 'text'
-      file = File.new(file.split('/').last, 'w')
+      file = File.new(file.split(splitter).last, 'w')
     else
       puts 'invalid format!'
       return
@@ -48,8 +53,12 @@ class Commands
   end
 
   def self.put(client, file, format)
-    client.write "put #{file.split('/').last} #{format}"
-
+    if file.include? '/'
+      splitter = '/'
+    else
+      splitter = '\\'
+    end
+    client.write "put #{file.split(splitter).last} #{format}"
     file = File.open(file, 'r')
     content = file.read
     file.close

@@ -53,6 +53,7 @@ class Server
           puts 'client does not exist'
         end
       when 'put'
+        client = findClientByIp(ip)
         if client
           Commands.put(client, file, format)
         else

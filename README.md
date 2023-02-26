@@ -11,8 +11,8 @@ put IP FILE FORMAT - formats are binary & text<br>
 commands<br>
 
 ## Instructions
-***Client -*** ```./mechtron.rb -c IP```<br>
-***Server -*** ```./mechtron.rb -s```<br>
+***Client Mode -*** ```./mechtron.rb -c IP```<br>
+***Server Mode -*** ```./mechtron.rb -s```<br>
 ***Help -*** ```./mechtron.rb -h```
 
 ## Example Usage

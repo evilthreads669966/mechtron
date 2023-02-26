@@ -59,7 +59,13 @@ class Commands
       splitter = '\\'
     end
     client.write "put #{file.split(splitter).last} #{format}"
-    file = File.open(file, 'r')
+    if format == 'binary'
+      file = File.open(file, 'rb')
+    elsif format == 'text'
+      file = File.open(file, 'r')
+    else
+      puts 'invalid format'
+    end
     content = file.read
     file.close
     client.write content

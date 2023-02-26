@@ -4,11 +4,14 @@ A RAT tool. Mechtron allows you to remotely administrate computers and transfer 
 Mechtron runs on port 6666. It can handle multiple clients, but one session at a time. Meaning you can have one reverse shell instance at a time. I plan on publishing a debian package, but for now, you'll have to deal with the source folders.
 
 ## Commands
-clients<br>
-session IP<br>
-get IP FILE FORMAT - formats are binary & text<br>
-put IP FILE FORMAT - formats are binary & text<br>
-commands<br>
+- **clients**<br>
+- **session IP**<br>
+  - session is used to start a reverse shell<br>
+- **get IP FILE FORMAT** - formats awwre binary & text<br>
+  - get is used for downloading files.<br>
+- **put IP FILE FORMAT** - formats are binary & text<br>
+  - put is used for uploading files<br>
+- **commands**<br>
 
 ## Instructions
 ***Client Mode -*** ```./mechtron.rb -c IP```<br>

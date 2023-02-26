@@ -50,7 +50,6 @@ def rat(ip)
         end
 
         content = file.read
-        puts content
         socket.puts content
         file.close
         socket.puts 'done'

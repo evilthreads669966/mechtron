@@ -33,11 +33,13 @@ class Commands
       end
       client.write command
       loop do
-        response = client.read
+        response = client.read.strip
         if response == 'done'
           break
         end
-        puts response
+        if ! response.empty?
+          puts response
+        end
       end
     end
   end

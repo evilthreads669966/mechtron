@@ -12,7 +12,7 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
   - get is used for downloading files.<br>
 - **put IP FILE FORMAT** - formats are binary & text<br>
   - put is used for uploading files<br>
-- **commands**<br>
+- **help**<br>
 
 ## Instructions
 ***Client Mode -*** ```./mechtron.rb -c IP```<br>

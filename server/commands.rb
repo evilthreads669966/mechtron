@@ -18,7 +18,6 @@ require_relative 'client'
 
 # handles the logic for executing commands
 class Commands
-  @@commands = ['clients', 'session IP', 'get IP file format', 'put IP file format']
 
   def self.session(client)
     client.write 'session'
@@ -89,10 +88,5 @@ class Commands
     client.write content
     client.write 'done'
     puts 'upload finished'
-  end
-
-  # print out a list of all commands
-  def self.list_commands
-    @@commands.each { |cmd| puts cmd}
   end
 end

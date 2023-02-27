@@ -52,8 +52,6 @@ class Server
       case command.downcase
       when "clients"
         print_clients
-      when 'commands'
-        Commands.list_commands
       when 'session'
         client = findClientByIp(ip)
         if client

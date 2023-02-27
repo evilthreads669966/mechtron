@@ -37,7 +37,7 @@ class Commands
         if response == 'done'
           break
         end
-        if ! response.empty?
+        unless response.empty?
           puts response
         end
       end

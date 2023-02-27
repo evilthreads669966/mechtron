@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied .
 See the License for the specific language governing permissions and
 limitations under the License .
 =end
-
+require 'terminal-table'
 require 'socket'
 require_relative 'commands'
 require_relative 'client'
@@ -75,7 +75,21 @@ class Server
         else
           puts 'client does not exist'
         end
+      when 'help'
+        puts help_menu
       end
+    end
+  end
+
+  def help_menu
+    table = Terminal::Table.new do |t|
+      t << ['session IP', 'Use session with an IP address to start a reverse shell session. Enter "exit" to stop']          # Using << (push) as an alias for add_row
+      t << :separator          # Using << with :separator as an alias for add_separator
+      t.add_row ['get IP FILE FORMAT', 'Use get with an IP address followed by a file path and a format to download files. The format options are binary and text.']
+      t.add_separator          # Note - this version allows setting the separator's border_type
+      t.add_row ['put IP FILE FORMAT', 'Use put with an IP address followed by a file path and a format to upload files. The format options are binary and text.']
+      t.add_separator
+      t.add_row ['exit', 'Closes Mechtron application']
     end
   end
 

@@ -7,6 +7,7 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
 - **clients**<br>
 - **session IP**<br>
   - session is used to start a reverse shell<br>
+  - break out of the reverse shell with ```exit```
 - **get IP FILE FORMAT** - formats are binary & text<br>
   - get is used for downloading files.<br>
 - **put IP FILE FORMAT** - formats are binary & text<br>

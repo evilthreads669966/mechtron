@@ -4,19 +4,36 @@ A RAT tool. Mechtron allows you to remotely administrate computers and transfer 
 Mechtron runs on port 6666. It can handle multiple clients, but one session at a time. Meaning you can have one reverse shell instance at a time. I plan on publishing a debian package, but for now, you'll have to deal with the source folders.
 
 ## Commands
-```
-+--------------------+----------------------------------------------------------------------------------------------------------------------------+
-| session IP         | Use session with an IP address to start a reverse shell session. Enter "exit" to stop                                      |
-+--------------------+----------------------------------------------------------------------------------------------------------------------------+
-| get IP FILE FORMAT | Use get with an IP address followed by a file path and a format to download files. The format options are binary and text. |
-+--------------------+----------------------------------------------------------------------------------------------------------------------------+
-| put IP FILE FORMAT | Use put with an IP address followed by a file path and a format to upload files. The format options are binary and text.   |
-+--------------------+----------------------------------------------------------------------------------------------------------------------------+
-| help               | shows the HELP menu                                                                                                        |
-+--------------------+----------------------------------------------------------------------------------------------------------------------------+
-| exit               | Closes Mechtron application                                                                                                |
-+--------------------+----------------------------------------------------------------------------------------------------------------------------+
-```
+<table>
+    <tr>
+        <th>Commands</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>clients</td>
+        <td>Get a list of the connected machines</td>
+    </tr>
+    <tr>
+        <td nowrap>session IP</td>
+        <td>Use session with an IP address to start a reverse shell session. Enter "exit" to stop</td>
+    </tr>
+    <tr>
+        <td nowrap>get IP FILE FORMAT</td>
+        <td>Use get with an IP address followed by a file path and a format to download files. The format options are binary and text.</td>
+    </tr>
+    <tr>
+        <td nowrap>put IP FILE FORMAT</td>
+        <td>Use put with an IP address followed by a file path and a format to upload files. The format options are binary and text.</td>
+    </tr>
+    <tr>
+        <td>help</td>
+        <td>shows the HELP menu</td>
+    </tr>
+    <tr>
+        <td>exit</td>
+        <td>Closes Mechtron application</td>
+    </tr>
+</table>
 
 ## Instructions
 ***Client Mode -*** ```./mechtron.rb -c IP```<br>

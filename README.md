@@ -4,15 +4,17 @@ A RAT tool. Mechtron allows you to remotely administrate computers and transfer 
 Mechtron runs on port 6666. It can handle multiple clients, but one session at a time. Meaning you can have one reverse shell instance at a time. I plan on publishing a debian package, but for now, you'll have to deal with the source folders.
 
 ## Commands
-- **clients**<br>
-- **session IP**<br>
-  - session is used to start a reverse shell<br>
-  - break out of the reverse shell with ```exit```
-- **get IP FILE FORMAT** - formats are binary & text<br>
-  - get is used for downloading files.<br>
-- **put IP FILE FORMAT** - formats are binary & text<br>
-  - put is used for uploading files<br>
-- **help**<br>
+```
++--------------------+----------------------------------------------------------------------------------------------------------------------------+
+| session IP         | Use session with an IP address to start a reverse shell session. Enter "exit" to stop                                      |
++--------------------+----------------------------------------------------------------------------------------------------------------------------+
+| get IP FILE FORMAT | Use get with an IP address followed by a file path and a format to download files. The format options are binary and text. |
++--------------------+----------------------------------------------------------------------------------------------------------------------------+
+| put IP FILE FORMAT | Use put with an IP address followed by a file path and a format to upload files. The format options are binary and text.   |
++--------------------+----------------------------------------------------------------------------------------------------------------------------+
+| exit               | Closes Mechtron application                                                                                                |
++--------------------+----------------------------------------------------------------------------------------------------------------------------+
+```
 
 ## Instructions
 ***Client Mode -*** ```./mechtron.rb -c IP```<br>

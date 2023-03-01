@@ -8,6 +8,7 @@ Create a mechtron client with ```./mechtron -c IP```
 
 ## Cool Tips
 - You can aim a mechtron client at a mechtron server that doesn't exist yet.
+- Windows Defender won't interfere with mechtron. It's been tested on Windows 11 Enterprise edition
 
 ## Commands
 <table>

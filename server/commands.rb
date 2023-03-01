@@ -89,4 +89,14 @@ class Commands
     client.write 'done'
     puts 'upload finished'
   end
+
+  def self.scan(client)
+    for port in 1..65536
+      begin
+        TCPSocket.new(client.ip,port).close
+        puts "#{port} open"
+      rescue Errno::ECONNREFUSED
+      end
+    end
+  end
 end

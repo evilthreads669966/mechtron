@@ -33,6 +33,10 @@ Create a mechtron client with ```./mechtron -c IP```
         <td>Use put with an IP address followed by a file path and a format to upload files. The format options are binary and text.</td>
     </tr>
     <tr>
+        <td nowrap>scan IP</td>
+        <td>Scan all ports on the client machine</td>
+    </tr>
+    <tr>
         <td>help</td>
         <td>shows the HELP menu</td>
     </tr>

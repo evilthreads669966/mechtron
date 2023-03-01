@@ -98,5 +98,6 @@ class Commands
       rescue Errno::ECONNREFUSED
       end
     end
+    puts 'scan finished'
   end
 end

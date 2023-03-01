@@ -86,6 +86,8 @@ class Server
         end
       when 'help'
         puts @@help_table
+      else
+        puts 'invalid command'
       end
     end
   end
@@ -104,10 +106,8 @@ class Server
   def print_clients
     if @clients.empty?
       puts 'No clients connected'
-    else
-      @clients.sort_by(&:id)
-      @clients.each { |client| puts client.to_s}
     end
+    @clients.sort_by(&:id)
+    @clients.each { |client| puts client.to_s}
   end
-
 end

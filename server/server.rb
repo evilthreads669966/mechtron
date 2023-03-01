@@ -20,7 +20,19 @@ require_relative 'client'
 
 # Handles connections and contains the clients
 class Server
-
+  @@help_table = Terminal::Table.new do |t|
+    t << ['clients', 'List all of the connected machines']
+    t << :separator
+    t << ['session IP', 'Use session with an IP address to start a reverse shell session. Enter "exit" to stop']
+    t << :separator
+    t.add_row ['get IP FILE FORMAT', 'Use get with an IP address followed by a file path and a format to download files. The format options are binary and text.']
+    t.add_separator
+    t.add_row ['put IP FILE FORMAT', 'Use put with an IP address followed by a file path and a format to upload files. The format options are binary and text.']
+    t.add_separator
+    t.add_row ['help', 'shows the HELP menu']
+    t.add_separator
+    t.add_row ['exit', 'Closes Mechtron application']
+  end
   def initialize(port = 6666)
     @clients = []
     @port = port
@@ -73,24 +85,8 @@ class Server
           puts 'client does not exist'
         end
       when 'help'
-        puts help_menu
+        puts @@help_table
       end
-    end
-  end
-
-  def help_menu
-    table = Terminal::Table.new do |t|
-      t << ['clients', 'List all of the connected machines']
-      t << :separator
-      t << ['session IP', 'Use session with an IP address to start a reverse shell session. Enter "exit" to stop']
-      t << :separator
-      t.add_row ['get IP FILE FORMAT', 'Use get with an IP address followed by a file path and a format to download files. The format options are binary and text.']
-      t.add_separator
-      t.add_row ['put IP FILE FORMAT', 'Use put with an IP address followed by a file path and a format to upload files. The format options are binary and text.']
-      t.add_separator
-      t.add_row ['help', 'shows the HELP menu']
-      t.add_separator
-      t.add_row ['exit', 'Closes Mechtron application']
     end
   end
 

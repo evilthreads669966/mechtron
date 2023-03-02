@@ -47,9 +47,20 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
 </table>
 
 ## Instructions
-***Client Mode -*** ```./mechtron.rb -c IP```<br>
-***Server Mode -*** ```./mechtron.rb -s```<br>
-***Help -*** ```./mechtron.rb -h```
+  <table>
+    <tr>
+      <th>Program Parameters</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>-s</td>
+      <td>Server mode</td>
+    </tr>
+    <tr>
+      <td>-c IP</td>
+      <td>Client mode. This parameter requires an IP address</td>
+    </tr>
+  </table>
 
 ## Example Usage
 

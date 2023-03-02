@@ -83,8 +83,6 @@ def rat(ip)
   rescue
     sleep 2
     retry
-  rescue Interrupt
-    socket.close
   end
 
 end

@@ -34,7 +34,7 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
     </tr>
     <tr>
         <td nowrap>scan IP</td>
-        <td>Scan all ports on the client machine</td>
+        <td>Scan all TCP ports on the client machine</td>
     </tr>
     <tr>
         <td>help</td>

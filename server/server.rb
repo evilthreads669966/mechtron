@@ -115,6 +115,7 @@ class Server
   def print_clients
     if @clients.empty?
       puts 'No clients connected'
+      return
     end
     @clients.sort_by(&:id)
     t = Terminal::Table.new do |t|

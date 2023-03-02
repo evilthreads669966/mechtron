@@ -117,14 +117,14 @@ class Server
       puts 'No clients connected'
     end
     @clients.sort_by(&:id)
-    table = Terminal::Table.new do |table|
+    t = Terminal::Table.new do |t|
       @clients.each do |client|
         if client.id > 0
-          table << :separator
+          t << :separator
         end
-        table << [client.id, client.ip]
+        t << [client.id, client.ip]
       end
     end
-    puts table
+    puts t
   end
 end

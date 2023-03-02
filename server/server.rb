@@ -90,7 +90,11 @@ class Server
         puts @@help_table
       when 'scan'
         client = findClientByIp ip
-        Commands.scan client
+        if client
+          Commands.scan client
+        else
+          puts 'invalid IP'
+        end
       else
         puts 'invalid command'
       end

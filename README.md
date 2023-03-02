@@ -75,6 +75,12 @@ put 127.0.0.1 /home/chrisbasinger/file.txt text
 upload finished
 put 127.0.0.1 /home/chrisbasinger/spreadsheet.xlsx binary
 upload finished
+scan 127.0.0.1
+111 open
+631 open
+2049 open
+4444 open
+scan finished
 exit
 exiting the server..
 

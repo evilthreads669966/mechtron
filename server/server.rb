@@ -18,8 +18,12 @@ require 'socket'
 require_relative 'commands'
 require_relative 'client'
 
+$KILL = false
+$IN_SESSION = false
+
 # Handles connections and contains the clients
 class Server
+  attr_accessor :clients
   @@help_table = Terminal::Table.new do |t|
     t << ['clients', 'List all of the connected machines']
     t << :separator
@@ -51,19 +55,7 @@ class Server
         puts "#{client.to_s} joined"
       end
     end
-    Thread.new do
-      loop do
-        sleep 1
-        @clients.each do |client|
-          begin
-            TCPSocket.new(client.ip, 7777).close
-          rescue
-            puts "#{client.to_s} disconnected"
-            @clients.delete client
-          end
-        end
-      end
-    end
+    clients_heartbeat
     handle_commands
   end
 
@@ -81,7 +73,7 @@ class Server
       when 'session'
         client = findClientByIp(ip)
         if client
-          Commands.session client
+          Commands.session(client,self)
         else
           puts 'client does not exist'
         end
@@ -145,5 +137,21 @@ class Server
       end
     end
     puts t
+  end
+
+  def clients_heartbeat
+    Thread.new do
+      loop do
+        sleep 1
+        @clients.each do |client|
+          begin
+            TCPSocket.new(client.ip, 7777).close
+          rescue
+            puts "#{client.to_s} disconnected"
+            @clients.delete client
+          end
+        end
+      end
+    end
   end
 end

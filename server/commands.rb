@@ -19,28 +19,44 @@ require_relative 'client'
 # handles the logic for executing commands
 class Commands
 
-  def self.session(client)
-    client.write 'session'
-    puts "session started with #{client.to_s}"
-    loop do
-      print '$ '
-      command = STDIN.gets.chomp
-      if command.downcase == 'exit'
-        puts 'closing session'
-        client.write 'exit'
-        break
-      end
-      client.write command
+  def self.session(client, server)
+    t = Thread.new do
+      client.write 'session'
+      puts "session started with #{client.to_s}"
       loop do
-        response = client.read.strip
-        if response == 'done'
+        Thread.new do
+          loop do
+            sleep 1
+            begin
+              TCPSocket.new(client.ip, 7777).close
+            rescue
+              puts "#{client.to_s} disconnected\r"
+              server.clients.delete client
+              Thread.kill t
+              break
+            end
+          end
+        end
+        print '$ '
+        command = STDIN.gets.chomp
+        if command.downcase == 'exit'
+          puts 'closing session'
+          client.write 'exit'
           break
         end
-        unless response.empty?
-          puts response
+        client.write command
+        loop do
+          response = client.read.strip
+          if response == 'done'
+            break
+          end
+          unless response.empty?
+            puts response
+          end
         end
       end
     end
+    t.join
   end
 
   def self.get(client, file, format)

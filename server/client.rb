@@ -40,7 +40,7 @@ class Client
   end
 
   def ==(other)
-    return (self.class == other.class) && (self.ip == other.ip)
+    return (self.class == other.class) && (@ip == other.ip)
   end
 
 end

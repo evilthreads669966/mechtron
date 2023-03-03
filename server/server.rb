@@ -113,17 +113,22 @@ class Server
 
   # Prints out a list of the connected clients
   def print_clients
+    @clients.sort_by(&:id)
+    @clients.each do |client|
+      begin
+        TCPSocket.new(client.ip, 7777).close
+      rescue
+        @clients.delete client
+      end
+    end
     if @clients.empty?
       puts 'No clients connected'
       return
     end
-    @clients.sort_by(&:id)
     t = Terminal::Table.new do |t|
       @clients.each do |client|
-        if client.id > 0
-          t << :separator
-        end
         t << [client.id, client.ip]
+        t << :separator
       end
     end
     puts t

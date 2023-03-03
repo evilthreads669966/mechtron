@@ -51,6 +51,19 @@ class Server
         puts "#{client.to_s} joined"
       end
     end
+    Thread.new do
+      loop do
+        sleep 1
+        @clients.each do |client|
+          begin
+            TCPSocket.new(client.ip, 7777).close
+          rescue
+            puts "#{client.to_s} disconnected"
+            @clients.delete client
+          end
+        end
+      end
+    end
     handle_commands
   end
 

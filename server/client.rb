@@ -39,4 +39,8 @@ class Client
     "[#{@id}] #{@ip}"
   end
 
+  def ==(other)
+    return (self.class == other.class) && (@id == other.id) && (@ip == other.ip)
+  end
+
 end

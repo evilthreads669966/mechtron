@@ -78,7 +78,7 @@ def rat(ip)
         end
         file.close
       when 'latency'
-        socket.puts 'ping'
+        socket.puts 'done'
       end
     end
     # SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET

@@ -18,7 +18,6 @@ require 'socket'
 
 # class responsible for holding client information
 class Client
-  attr_accessor :name
   attr_reader :ip, :id, :sock
   @@counter = 0
   def initialize(sock)
@@ -26,7 +25,6 @@ class Client
     @ip = sock.peeraddr(false)[3]
     @id = @@counter
     @@counter += 1
-    @name = nil
   end
 
   def write(data)
@@ -38,7 +36,7 @@ class Client
   end
 
   def to_s
-    "[#{@id}] #{@ip} #{@name}"
+    "[#{@id}] #{@ip}"
   end
 
   def ==(other)

@@ -11,13 +11,14 @@ Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied .
 See the License for the specific language governing permissions and
-limitations under the License .
+limitations under the License.
 =end
 
 require 'socket'
 
 # class responsible for holding client information
 class Client
+  attr_accessor :name
   attr_reader :ip, :id, :sock
   @@counter = 0
   def initialize(sock)
@@ -25,6 +26,7 @@ class Client
     @ip = sock.peeraddr(false)[3]
     @id = @@counter
     @@counter += 1
+    @name = nil
   end
 
   def write(data)

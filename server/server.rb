@@ -107,6 +107,13 @@ class Server
         else
           puts 'invalid IP'
         end
+      when 'programs'
+        client = findClientByIp ip
+        if client
+          Commands.programs client
+        else
+          puts 'invalid IP'
+        end
       else
         puts 'invalid command'
       end

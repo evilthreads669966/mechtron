@@ -125,4 +125,15 @@ class Commands
     latency = finish - start
     puts "latency is #{latency} milliseconds"
   end
+
+  def self.programs(client)
+    client.write 'programs'
+    loop do
+      response = client.read
+      if response == 'done'
+        break
+      end
+      puts response
+    end
+  end
 end

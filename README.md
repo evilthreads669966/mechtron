@@ -42,7 +42,7 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
     </tr>
     <tr>
         <td nowrap>programs IP</td>
-        <td>Get a list of the running programs on the client machine.</td>
+        <td>Get a list of the running programs on a client machine.</td>
     </tr>
     <tr>
         <td>help</td>

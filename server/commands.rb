@@ -118,8 +118,8 @@ class Commands
   end
 
   def self.latency(client)
-    client.write 'latency'
     start = Time.now
+    client.write 'latency'
     client.read
     finish = Time.now
     latency = finish - start

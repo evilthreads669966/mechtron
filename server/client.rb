@@ -38,7 +38,7 @@ class Client
   end
 
   def to_s
-    "[#{@id}] #{@ip}"
+    "[#{@id}] #{@ip} #{@name}"
   end
 
   def ==(other)

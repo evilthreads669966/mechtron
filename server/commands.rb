@@ -116,4 +116,13 @@ class Commands
     end
     puts 'scan finished'
   end
+
+  def self.latency(client)
+    client.write 'latency'
+    start = Time.now
+    client.read
+    finish = Time.now
+    latency = finish - start
+    puts "latency is #{latency} milliseconds"
+  end
 end

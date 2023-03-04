@@ -100,6 +100,13 @@ class Server
         else
           puts 'invalid IP'
         end
+      when 'latency'
+        client = findClientByIp ip
+        if client
+          Commands.latency client
+        else
+          puts 'invalid IP'
+        end
       else
         puts 'invalid command'
       end

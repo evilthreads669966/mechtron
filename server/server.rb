@@ -35,6 +35,10 @@ class Server
     t << :separator
     t << ['scan IP', 'Scan all of the ports on client machine']
     t << :separator
+    t << ['latency IP', 'Get the speed of the connection']
+    t << :separator
+    t << ['programs IP', 'Get a list of the running programs']
+    t << :separator
     t << ['help', 'shows the HELP menu']
     t << :separator
     t << ['exit', 'Closes Mechtron application']

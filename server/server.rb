@@ -27,11 +27,11 @@ class Server
   @@help_table = Terminal::Table.new do |t|
     t << ['clients', 'List all of the connected machines']
     t << :separator
-    t << ['session IP', 'Use session with an IP address to start a reverse shell session. Enter "exit" to stop']
+    t << ['session IP', 'starts a reverse shell session. Enter "exit" to stop']
     t << :separator
-    t << ['get IP FILE FORMAT', 'Use get with an IP address followed by a file path and a format to download files. The format options are binary and text.']
+    t << ['get IP FILE FORMAT', 'Download files. Format options are binary and text.']
     t << :separator
-    t << ['put IP FILE FORMAT', 'Use put with an IP address followed by a file path and a format to upload files. The format options are binary and text.']
+    t << ['put IP FILE FORMAT', 'Upload files. Format options are binary and text.']
     t << :separator
     t << ['scan IP', 'Scan all of the ports on client machine']
     t << :separator

@@ -6,7 +6,7 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
 **Create a mechtron server with** ```./mechtron -s```<br>
 **Create a mechtron client with** ```./mechtron -c IP```
 
-## Cool Tips
+## Useful Tips
 - You can aim a mechtron client at a mechtron server that doesn't exist yet.
 - A torified shell will interfere with mechtron.
 

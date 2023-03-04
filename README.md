@@ -39,7 +39,7 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
     </tr>
     <tr>
         <td nowrap>latency IP</td>
-        <td>Get the speed of the connection for a client.</td>
+        <td>Get the speed of the connection for a client machine in milliseeconds.</td>
     </tr>
     <tr>
         <td>help</td>

@@ -9,6 +9,7 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
 ## Cool Tips
 - You can aim a mechtron client at a mechtron server that doesn't exist yet.
 - Windows Defender won't interfere with mechtron.
+- A torified shell will interfere with mechtron.
 
 ## Commands
 <table>

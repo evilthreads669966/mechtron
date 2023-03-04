@@ -32,7 +32,7 @@ class Commands
             rescue
               puts "#{client.to_s} disconnected\r"
               server.clients.delete client
-              Thread.kill t
+              t.exit
               break
             end
           end

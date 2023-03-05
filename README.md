@@ -79,7 +79,7 @@ chmod +x mechtron.rb
 starting server on port 6666
 [0] 127.0.0.1 joined
 session 127.0.0.1
-session started with [0] 127.0.0.1
+session started with [0] 127.0.0.1 chrisbasinger
 $ whoami
 chrisbasinger
 $ which ruby
@@ -102,6 +102,22 @@ scan 127.0.0.1
 scan finished
 latency 127.0.0.1
 latency is 0.00022492 milliseconds
+[1] 192.168.1.219 chris joined
+programs 
+programs 192.168.1.219
+
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+System Idle Process              0 Services                   0          8 K
+System                           4 Services                   0         32 K
+Registry                        92 Services                   0     20,628 K
+smss.exe                       324 Services                   0        268 K
+csrss.exe                      424 Services                   0      2,268 K
+wininit.exe                    500 Services                   0        660 K
+csrss.exe                      512 Console                    1      2,592 K
+winlogon.exe                   596 Console                    1      3,228 K
+services.exe                   616 Services                   0      6,212 K
+
 exit
 exiting the server..
 

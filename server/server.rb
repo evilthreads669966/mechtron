@@ -16,12 +16,11 @@ limitations under the License.
 require 'terminal-table'
 require 'socket'
 require 'singleton'
+require 'concurrent-ruby'
 require_relative 'commands'
 require_relative 'client'
 
-$KILL = false
-$IN_SESSION = false
-
+$thread_pool = Concurrent::FixedThreadPool.new(Concurrent.processor_count)
 # Handles connections and contains the clients
 class Server
   include Singleton
@@ -53,7 +52,7 @@ class Server
 
   #starts the server. This handles adding new connections.
   def start
-    Thread.new do
+    $thread_pool.post do
       puts "starting server on port #{@port}"
       server = TCPServer.new(@port)
       loop do
@@ -165,7 +164,7 @@ class Server
   end
 
   def clients_heartbeat
-    Thread.new do
+    $thread_pool.post do
       loop do
         sleep 1
         @clients.each do |client|

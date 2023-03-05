@@ -27,7 +27,7 @@ class Commands
         # This threads is to check for disconnections. It does the same thing as the heartbeat function in server.
         # We are checking whether port 7777 is open a second time.
         # If the connection fails then we delete the client from the list and break out of the session
-        Thread.new do
+        $thread_pool.post do
           loop do
             sleep 1
             begin

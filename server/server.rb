@@ -70,59 +70,61 @@ class Server
   def handle_commands
     loop do
       command, ip, file, format = STDIN.gets.chomp.split(" ")
-      if command.downcase == 'exit'
-        puts 'exiting the server..'
-        break
-      end
-      case command.downcase
-      when "clients"
-        print_clients
-      when 'session'
-        client = findClientByIp(ip)
-        if client
-          Commands.session(client)
-        else
-          puts 'invalid IP'
+      if command
+        if command.downcase == 'exit'
+          puts 'exiting the server..'
+          break
         end
-      when 'get'
-        client = findClientByIp(ip)
-        if client
-          Commands.get(client, file, format)
+        case command.downcase
+        when "clients"
+          print_clients
+        when 'session'
+          client = findClientByIp(ip)
+          if client
+            Commands.session(client)
+          else
+            puts 'invalid IP'
+          end
+        when 'get'
+          client = findClientByIp(ip)
+          if client
+            Commands.get(client, file, format)
+          else
+            puts 'invalid IP'
+          end
+        when 'put'
+          client = findClientByIp(ip)
+          if client
+            Commands.put(client, file, format)
+          else
+            puts 'invalid IP'
+          end
+        when 'help'
+          puts @@help_table
+        when 'scan'
+          client = findClientByIp ip
+          if client
+            Commands.scan client
+          else
+            puts 'invalid IP'
+          end
+        when 'latency'
+          client = findClientByIp ip
+          if client
+            Commands.latency client
+          else
+            puts 'invalid IP'
+          end
+        when 'programs'
+          client = findClientByIp ip
+          if client
+            Commands.programs client
+          else
+            puts 'invalid IP'
+          end
         else
-          puts 'invalid IP'
+          puts 'invalid command'
         end
-      when 'put'
-        client = findClientByIp(ip)
-        if client
-          Commands.put(client, file, format)
-        else
-          puts 'invalid IP'
-        end
-      when 'help'
-        puts @@help_table
-      when 'scan'
-        client = findClientByIp ip
-        if client
-          Commands.scan client
-        else
-          puts 'invalid IP'
-        end
-      when 'latency'
-        client = findClientByIp ip
-        if client
-          Commands.latency client
-        else
-          puts 'invalid IP'
-        end
-      when 'programs'
-        client = findClientByIp ip
-        if client
-          Commands.programs client
-        else
-          puts 'invalid IP'
-        end
-      else
-        puts 'invalid command'
       end
     end
   end

@@ -101,7 +101,7 @@ scan 127.0.0.1
 4444 open
 scan finished
 latency 127.0.0.1
-latency is 0.00022492 milliseconds
+0.00022492 milliseconds
 [1] 192.168.1.219 chris joined
 programs 
 programs 192.168.1.219

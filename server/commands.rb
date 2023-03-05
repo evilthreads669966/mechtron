@@ -123,7 +123,7 @@ class Commands
     client.read
     finish = Time.now
     latency = finish - start
-    puts "latency is #{latency} milliseconds"
+    puts "#{latency} milliseconds"
   end
 
   def self.programs(client)

@@ -20,6 +20,7 @@ require_relative 'client'
 class Commands
 
   def self.session(client)
+    client.in_session = true
     t = Thread.new do
       client.puts 'session'
       puts "session started with #{client.to_s}"
@@ -60,6 +61,7 @@ class Commands
       end
     end
     t.join
+    client.in_session = false
   end
 
   def self.get(client, file, format)

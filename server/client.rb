@@ -18,7 +18,7 @@ require 'socket'
 
 # class responsible for holding client information
 class Client
-  attr_accessor :name
+  attr_accessor :name, :in_session
   attr_reader :ip, :id, :sock
   @@counter = 0
   def initialize(sock)
@@ -27,6 +27,7 @@ class Client
     @id = @@counter
     @@counter += 1
     @name = nil
+    @in_session = false
   end
 
   def puts(data)

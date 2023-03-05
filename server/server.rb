@@ -171,8 +171,10 @@ class Server
           begin
             TCPSocket.new(client.ip, 7777).close
           rescue Errno::ECONNREFUSED
-            puts "#{client.to_s} disconnected"
-            @clients.delete client
+            if !client.in_session
+              puts "#{client.to_s} disconnected"
+              @clients.delete client
+            end
           end
         end
       end

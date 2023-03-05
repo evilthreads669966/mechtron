@@ -16,7 +16,7 @@ limitations under the License .
 
 require_relative 'client'
 
-# handles the logic for executing commands
+# This class contains the commands foor which you are able to execute on the server
 class Commands
 
   def self.session(client, server)

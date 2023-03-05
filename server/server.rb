@@ -15,6 +15,7 @@ limitations under the License.
 =end
 require 'terminal-table'
 require 'socket'
+require 'singleton'
 require_relative 'commands'
 require_relative 'client'
 
@@ -23,7 +24,9 @@ $IN_SESSION = false
 
 # Handles connections and contains the clients
 class Server
+  include Singleton
   attr_accessor :clients
+  @@instance = nil
   @@help_table = Terminal::Table.new(:title => 'HELP', :headings => ['COMMAND', 'DESCRIPTION']) do |t|
     t << ['clients', 'List all of the connected machines']
     t << :separator
@@ -78,7 +81,7 @@ class Server
       when 'session'
         client = findClientByIp(ip)
         if client
-          Commands.session(client,self)
+          Commands.session(client)
         else
           puts 'invalid IP'
         end

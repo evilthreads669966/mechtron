@@ -19,7 +19,7 @@ require_relative 'client'
 # This class contains the commands foor which you are able to execute on the server
 class Commands
 
-  def self.session(client, server)
+  def self.session(client)
     t = Thread.new do
       client.puts 'session'
       puts "session started with #{client.to_s}"
@@ -34,7 +34,7 @@ class Commands
               TCPSocket.new(client.ip, 7777).close
             rescue
               puts "#{client.to_s} disconnected\r"
-              server.clients.delete client
+              Server.instance.clients.delete client
               t.exit
               break
             end

@@ -24,7 +24,7 @@ $IN_SESSION = false
 # Handles connections and contains the clients
 class Server
   attr_accessor :clients
-  @@help_table = Terminal::Table.new do |t|
+  @@help_table = Terminal::Table.new(:title => 'HELP', :headings => ['COMMAND', 'DESCRIPTION']) do |t|
     t << ['clients', 'List all of the connected machines']
     t << :separator
     t << ['session IP', 'starts a reverse shell session. Enter "exit" to stop']

@@ -97,18 +97,22 @@ class Commands
       splitter = '\\'
     end
     client.puts "put #{file.split(splitter).last} #{format}"
-    if format == 'binary'
-      file = File.open(file, 'rb')
-    elsif format == 'text'
-      file = File.open(file, 'r')
-    else
-      puts 'invalid format'
+    begin
+      if format == 'binary'
+        file = File.open(file, 'rb')
+      elsif format == 'text'
+        file = File.open(file, 'r')
+      else
+        puts 'invalid format'
+      end
+      content = file.gets
+      file.close
+      client.puts content
+      client.puts 'done'
+      puts 'upload finished'
+    rescue Errno::ENOENT
+      puts 'That file does not exist'
     end
-    content = file.gets
-    file.close
-    client.puts content
-    client.puts 'done'
-    puts 'upload finished'
   end
 
   def self.scan(client)

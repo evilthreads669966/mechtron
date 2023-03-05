@@ -77,7 +77,7 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
 chmod +x mechtron.rb
 ./mechtron -s
 starting server on port 6666
-[0] 127.0.0.1 joined
+[0] 127.0.0.1 chrisbasinger joined
 session 127.0.0.1
 session started with [0] 127.0.0.1 chrisbasinger
 $ whoami

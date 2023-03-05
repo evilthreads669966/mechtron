@@ -80,21 +80,21 @@ class Server
         if client
           Commands.session(client,self)
         else
-          puts 'client does not exist'
+          puts 'invalid IP'
         end
       when 'get'
         client = findClientByIp(ip)
         if client
           Commands.get(client, file, format)
         else
-          puts 'client does not exist'
+          puts 'invalid IP'
         end
       when 'put'
         client = findClientByIp(ip)
         if client
           Commands.put(client, file, format)
         else
-          puts 'client does not exist'
+          puts 'invalid IP'
         end
       when 'help'
         puts @@help_table

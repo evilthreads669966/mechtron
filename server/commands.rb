@@ -86,7 +86,7 @@ class Commands
       end
       if content == 'error'
         puts 'That file does not exist!'
-        return nil
+        break
       end
       file.puts content
     end
@@ -116,6 +116,7 @@ class Commands
       puts 'upload finished'
     rescue Errno::ENOENT
       puts 'That file does not exist'
+      client.puts 'done'
     end
   end
 

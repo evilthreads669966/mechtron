@@ -149,7 +149,7 @@ class Server
       puts 'No clients connected'
       return
     end
-    t = Terminal::Table.new do |t|
+    t = Terminal::Table.new(:title => 'CLIENTS', :headings => ['ID', 'IP ADDRESS']) do |t|
       @clients.each do |client|
         t << [client.id, client.ip]
         t << :separator

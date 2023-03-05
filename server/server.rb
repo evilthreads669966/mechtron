@@ -55,7 +55,7 @@ class Server
       server = TCPServer.new(@port)
       loop do
         client = Client.new(server.accept)
-        client.name = client.read
+        client.name = client.gets
         @clients << client
         puts "#{client.to_s} joined"
       end

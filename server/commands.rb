@@ -21,7 +21,7 @@ class Commands
 
   def self.session(client, server)
     t = Thread.new do
-      client.write 'session'
+      client.puts 'session'
       puts "session started with #{client.to_s}"
       loop do
         Thread.new do
@@ -41,12 +41,12 @@ class Commands
         command = STDIN.gets.chomp
         if command.downcase == 'exit'
           puts 'closing session'
-          client.write 'exit'
+          client.puts 'exit'
           break
         end
-        client.write command
+        client.puts command
         loop do
-          response = client.read.strip
+          response = client.gets.strip
           if response == 'done'
             break
           end
@@ -60,7 +60,7 @@ class Commands
   end
 
   def self.get(client, file, format)
-    client.write "get #{file} #{format}"
+    client.puts "get #{file} #{format}"
     if file.include? '/'
       splitter = '/'
     else
@@ -75,7 +75,7 @@ class Commands
       return
     end
     loop do
-      content = client.read
+      content = client.gets
       if content == 'done'
         break
       end
@@ -91,7 +91,7 @@ class Commands
     else
       splitter = '\\'
     end
-    client.write "put #{file.split(splitter).last} #{format}"
+    client.puts "put #{file.split(splitter).last} #{format}"
     if format == 'binary'
       file = File.open(file, 'rb')
     elsif format == 'text'
@@ -99,10 +99,10 @@ class Commands
     else
       puts 'invalid format'
     end
-    content = file.read
+    content = file.gets
     file.close
-    client.write content
-    client.write 'done'
+    client.puts content
+    client.puts 'done'
     puts 'upload finished'
   end
 
@@ -119,17 +119,17 @@ class Commands
 
   def self.latency(client)
     start = Time.now
-    client.write 'latency'
-    client.read
+    client.puts 'latency'
+    client.gets
     finish = Time.now
     latency = finish - start
     puts "#{latency} milliseconds"
   end
 
   def self.programs(client)
-    client.write 'programs'
+    client.puts 'programs'
     loop do
-      response = client.read
+      response = client.gets
       if response == 'done'
         break
       end

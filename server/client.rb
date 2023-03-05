@@ -29,11 +29,11 @@ class Client
     @name = nil
   end
 
-  def write(data)
+  def puts(data)
     @sock.puts data
   end
 
-  def read()
+  def gets()
     return @sock.gets.chomp
   end
 

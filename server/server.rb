@@ -153,6 +153,7 @@ class Server
       puts 'No clients connected'
       return
     end
+    # There is no way to delete the last row from the table. So I put the rows in an array and remove the last first
     rows = []
     t = Terminal::Table.new(:title => 'CLIENTS', :headings => ['ID', 'IP ADDRESS']) do |t|
       @clients.each do |client|

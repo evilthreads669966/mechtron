@@ -103,7 +103,6 @@ scan finished
 latency 127.0.0.1
 0.00022492 milliseconds
 [1] 192.168.1.219 chris joined
-programs 
 programs 192.168.1.219
 
 Image Name                     PID Session Name        Session#    Mem Usage

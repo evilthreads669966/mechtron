@@ -149,12 +149,15 @@ class Server
       puts 'No clients connected'
       return
     end
+    rows = []
     t = Terminal::Table.new(:title => 'CLIENTS', :headings => ['ID', 'IP ADDRESS']) do |t|
       @clients.each do |client|
-        t << [client.id, client.ip]
-        t << :separator
+        rows << [client.id, client.ip]
+        rows << :separator
       end
     end
+    rows.delete rows.last
+    rows.each { |row| t << row}
     puts t
   end
 

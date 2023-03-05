@@ -20,7 +20,6 @@ require 'concurrent-ruby'
 require_relative 'commands'
 require_relative 'client'
 
-$thread_pool = Concurrent::FixedThreadPool.new(Concurrent.processor_count)
 # Handles connections and contains the clients
 class Server
   include Singleton
@@ -52,7 +51,7 @@ class Server
 
   #starts the server. This handles adding new connections.
   def start
-    $thread_pool.post do
+    Thread.new do
       puts "starting server on port #{@port}"
       server = TCPServer.new(@port)
       loop do
@@ -153,7 +152,7 @@ class Server
       puts 'No clients connected'
       return
     end
-    # There is no way to delete the last row from the table. So I put the rows in an array and remove the last first
+    # There is no way to delete the last row from the table. So I put the rows in an array and remove the last first becasue it always ends up with a trailing separator
     rows = []
     t = Terminal::Table.new(:title => 'CLIENTS', :headings => ['ID', 'IP ADDRESS']) do |t|
       @clients.each do |client|
@@ -167,7 +166,7 @@ class Server
   end
 
   def clients_heartbeat
-    $thread_pool.post do
+    Thread.new do
       loop do
         sleep 1
         @clients.each do |client|

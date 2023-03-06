@@ -151,6 +151,7 @@ class Server
     else
       client = findClientById(id_or_ip)
     end
+    return client
   end
 
   # returns the client matching the ip address

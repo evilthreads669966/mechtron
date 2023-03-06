@@ -39,6 +39,10 @@ class Server
     t << :separator
     t << ['programs IP', 'Get a list of the running programs']
     t << :separator
+    t << ['uptime IP', 'Uptime in minutes']
+    t << :separator
+    t << ['reboot IP', 'reboots the client']
+    t << :separator
     t << ['help', 'shows the HELP menu']
     t << :separator
     t << ['exit', 'Closes Mechtron application']

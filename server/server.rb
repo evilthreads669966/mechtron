@@ -56,6 +56,9 @@ class Server
   def start
     Thread.new do
       puts "starting server on port #{@port}"
+      puts
+      puts 'Useful tip: You can use the client ID in place of the IP!'
+      puts
       server = TCPServer.new(@port)
       loop do
         client = Client.new(server.accept)

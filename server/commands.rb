@@ -160,4 +160,31 @@ class Commands
   def self.reboot(client)
     client.puts 'reboot'
   end
+
+  # Prints out a list of the connected clients
+  def self.clients(clients)
+    clients.sort_by(&:id)
+    clients.each do |client|
+      begin
+        TCPSocket.new(client.ip, 7777).close
+      rescue
+        clients.delete client
+      end
+    end
+    if clients.empty?
+      puts 'No clients connected'
+      return
+    end
+    # There is no way to delete the last row from the table. So I put the rows in an array and remove the last before adding them to the table becasue it always ends up with a trailing separator
+    rows = []
+    t = Terminal::Table.new(:title => 'CLIENTS', :headings => ['ID', 'IP ADDRESS', 'NAME']) do |t|
+      clients.each do |client|
+        rows << [client.id, client.ip, client.name]
+        rows << :separator
+      end
+    end
+    rows.delete rows.last
+    rows.each { |row| t << row}
+    puts t
+  end
 end

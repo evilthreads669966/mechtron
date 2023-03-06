@@ -149,11 +149,11 @@ class Server
     end
   end
 
-  def find_client(id_or_ip)
-    if id_or_ip.include? '.'
-      client = findClientByIp(id_or_ip)
+  def find_client(ip)
+    if ip.include? '.'
+      client = findClientByIp(ip)
     else
-      client = findClientById(id_or_ip)
+      client = findClientById(ip)
     end
     return client
   end

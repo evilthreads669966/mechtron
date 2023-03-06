@@ -192,6 +192,7 @@ class Server
           rescue Errno::ECONNREFUSED
             if !client.in_session
               puts "#{client.to_s} disconnected"
+              client.sock.close
               @clients.delete client
             end
           end

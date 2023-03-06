@@ -86,7 +86,8 @@ class Commands
       end
       if content == 'error'
         puts 'That file does not exist!'
-        break
+        file.close
+        return nil
       end
       file.puts content
     end

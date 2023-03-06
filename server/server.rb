@@ -60,6 +60,7 @@ class Server
       loop do
         client = Client.new(server.accept)
         client.name = client.gets
+        client.platform = client.gets
         @clients << client
         puts "#{client.to_s} joined"
       end

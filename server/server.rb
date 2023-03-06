@@ -27,21 +27,21 @@ class Server
   @@help_table = Terminal::Table.new(:title => 'HELP', :headings => ['COMMAND', 'DESCRIPTION']) do |t|
     t << ['clients', 'List all of the connected machines']
     t << :separator
-    t << ['session ID/IP', 'starts a reverse shell session. Enter "exit" to stop']
+    t << ['session IP', 'starts a reverse shell session. Enter "exit" to stop']
     t << :separator
-    t << ['get ID/IP FILE FORMAT', 'Download files. Format options are binary and text.']
+    t << ['get IP FILE FORMAT', 'Download files. Format options are binary and text.']
     t << :separator
-    t << ['put ID/IP FILE FORMAT', 'Upload files. Format options are binary and text.']
+    t << ['put IP FILE FORMAT', 'Upload files. Format options are binary and text.']
     t << :separator
-    t << ['scan ID/IP', 'Scan all of the ports on client machine']
+    t << ['scan IP', 'Scan all of the ports on client machine']
     t << :separator
-    t << ['latency ID/IP', 'Get the speed of the connection']
+    t << ['latency IP', 'Get the speed of the connection']
     t << :separator
-    t << ['programs ID/IP', 'Get a list of the running programs']
+    t << ['programs IP', 'Get a list of the running programs']
     t << :separator
-    t << ['uptime ID/IP', 'Uptime in minutes']
+    t << ['uptime IP', 'Uptime in minutes']
     t << :separator
-    t << ['reboot ID/IP', 'reboots the client']
+    t << ['reboot IP', 'reboots the client']
     t << :separator
     t << ['help', 'shows the HELP menu']
     t << :separator

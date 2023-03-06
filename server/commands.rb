@@ -134,12 +134,6 @@ class Commands
 
   def self.programs(client)
     client.puts 'programs'
-    loop do
-      response = client.gets
-      if response == 'done'
-        break
-      end
-      puts response
-    end
+    puts client.sock.recv 100000
   end
 end

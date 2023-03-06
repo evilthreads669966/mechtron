@@ -127,6 +127,13 @@ class Server
           else
             puts 'invalid IP'
           end
+        when 'reboot'
+          client = findClientByIp ip
+          if client
+            Commands.reboot client
+          else
+            puts 'invalid IP'
+          end
         else
           puts 'invalid command'
         end

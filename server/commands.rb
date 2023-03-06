@@ -156,4 +156,8 @@ class Commands
     time = ((Time.now.to_i - client.time) / 60.0).round(1)
     puts "#{time} minutes"
   end
+
+  def self.reboot(client)
+    client.puts 'reboot'
+  end
 end

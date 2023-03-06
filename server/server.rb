@@ -120,6 +120,13 @@ class Server
           else
             puts 'invalid IP'
           end
+        when 'uptime'
+          client = findClientByIp ip
+          if client
+            Commands.uptime client
+          else
+            puts 'invalid IP'
+          end
         else
           puts 'invalid command'
         end

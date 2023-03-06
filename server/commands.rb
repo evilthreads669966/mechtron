@@ -15,7 +15,7 @@ limitations under the License .
 =end
 
 require_relative 'client'
-
+require 'time'
 # This class contains the commands foor which you are able to execute on the server
 class Commands
 
@@ -149,5 +149,10 @@ class Commands
       end
       puts response
     end
+  end
+
+  def self.uptime(client)
+    time = ((Time.now.to_i - client.time) / 60.0).round(1)
+    puts "#{time} minutes"
   end
 end

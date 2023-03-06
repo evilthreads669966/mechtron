@@ -15,11 +15,11 @@ limitations under the License.
 =end
 
 require 'socket'
-
+require 'time'
 # class responsible for holding client information
 class Client
   attr_accessor :name, :in_session
-  attr_reader :ip, :id, :sock
+  attr_reader :ip, :id, :sock, :time
   @@counter = 0
   def initialize(sock)
     @sock = sock
@@ -28,6 +28,7 @@ class Client
     @@counter += 1
     @name = nil
     @in_session = false
+    @time = Time.now.to_i
   end
 
   def puts(data)

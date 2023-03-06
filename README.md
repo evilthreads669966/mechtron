@@ -49,6 +49,10 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
         <td>Returns how long the client has been connected in minutes.</td>
     </tr>
     <tr>
+        <td nowrap>reboot IP</td>
+        <td>Reboots the client machine.</td>
+    </tr>
+    <tr>
         <td>help</td>
         <td>shows the HELP menu</td>
     </tr>

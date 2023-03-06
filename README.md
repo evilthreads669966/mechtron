@@ -46,7 +46,7 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
     </tr>
     <tr>
         <td nowrap>uptime IP</td>
-        <td>Gets the time connected in minutes.</td>
+        <td>Returns how long the client has been connected in minutes.</td>
     </tr>
     <tr>
         <td>help</td>

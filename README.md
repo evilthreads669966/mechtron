@@ -87,7 +87,7 @@ chmod +x mechtron.rb
 ./mechtron -s
 starting server on port 6666
 [0] 127.0.0.1 chrisbasinger joined
-session 127.0.0.1
+session 0
 session started with [0] 127.0.0.1 chrisbasinger
 $ whoami
 chrisbasinger
@@ -95,24 +95,24 @@ $ which ruby
 /bin/ruby
 $ exit
 closing session
-get 127.0.0.1 /home/chrisbasinger/script.sh text
+get 0 /home/chrisbasinger/script.sh text
 download finished
-get 127.0.0.1 /home/chrisbasinger/picture.jpg binary
+get 0 /home/chrisbasinger/picture.jpg binary
 download finished
-put 127.0.0.1 /home/chrisbasinger/file.txt text
+put 0 /home/chrisbasinger/file.txt text
 upload finished
-put 127.0.0.1 /home/chrisbasinger/spreadsheet.xlsx binary
+put 0 /home/chrisbasinger/spreadsheet.xlsx binary
 upload finished
-scan 127.0.0.1
+scan 0
 111 open
 631 open
 2049 open
 4444 open
 scan finished
-latency 127.0.0.1
+latency 0
 0.00022492 milliseconds
 [1] 192.168.1.219 chris joined
-programs 192.168.1.219
+programs 1
 
 Image Name                     PID Session Name        Session#    Mem Usage
 ========================= ======== ================ =========== ============

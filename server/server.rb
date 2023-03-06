@@ -89,21 +89,21 @@ class Server
           if client
             Commands.session(client)
           else
-            puts 'invalid IP'
+            puts 'invalid IP or ID'
           end
         when 'get'
           client = find_client ip
           if client
             Commands.get(client, file, format)
           else
-            puts 'invalid IP'
+            puts 'invalid IP or ID'
           end
         when 'put'
           client = find_client ip
           if client
             Commands.put(client, file, format)
           else
-            puts 'invalid IP'
+            puts 'invalid IP or ID'
           end
         when 'help'
           puts @@help_table
@@ -112,35 +112,35 @@ class Server
           if client
             Commands.scan client
           else
-            puts 'invalid IP'
+            puts 'invalid IP or ID'
           end
         when 'latency'
           client = find_client ip
           if client
             Commands.latency client
           else
-            puts 'invalid IP'
+            puts 'invalid IP or ID'
           end
         when 'programs'
           client = find_client ip
           if client
             Commands.programs client
           else
-            puts 'invalid IP'
+            puts 'invalid IP or ID'
           end
         when 'uptime'
           client = find_client ip
           if client
             Commands.uptime client
           else
-            puts 'invalid IP'
+            puts 'invalid IP or ID'
           end
         when 'reboot'
           client = find_client ip
           if client
             Commands.reboot client
           else
-            puts 'invalid IP'
+            puts 'invalid IP or ID'
           end
         else
           puts 'invalid command'

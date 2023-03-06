@@ -19,7 +19,7 @@ require 'socket'
 # class responsible for holding client information
 class Client
   attr_accessor :name, :in_session
-  attr_reader :ip, :id
+  attr_reader :ip, :id, :sock
   @@counter = 0
   def initialize(sock)
     @sock = sock

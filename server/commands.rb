@@ -49,15 +49,7 @@ class Commands
           break
         end
         client.puts command
-        loop do
-          response = client.gets.strip
-          if response == 'done'
-            break
-          end
-          unless response.empty?
-            puts response
-          end
-        end
+        puts client.sock.recv(100000)
       end
     end
     t.join

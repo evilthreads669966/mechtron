@@ -49,7 +49,6 @@ def rat(ip)
               socket.puts 'invalid command'
             end
           end
-          socket.puts 'done'
         end
       when 'get'
         if File.exist? file

@@ -149,6 +149,7 @@ class Commands
       end
       puts response
     end
+    puts
   end
 
   def self.uptime(client)

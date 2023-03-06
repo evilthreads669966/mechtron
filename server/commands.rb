@@ -15,7 +15,6 @@ limitations under the License .
 =end
 
 require_relative 'client'
-require 'time'
 # This class contains the commands foor which you are able to execute on the server
 class Commands
 

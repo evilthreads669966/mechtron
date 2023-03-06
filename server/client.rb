@@ -15,7 +15,6 @@ limitations under the License.
 =end
 
 require 'socket'
-require 'time'
 # class responsible for holding client information
 class Client
   attr_accessor :name, :in_session

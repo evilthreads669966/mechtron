@@ -16,7 +16,6 @@ limitations under the License.
 require 'terminal-table'
 require 'socket'
 require 'singleton'
-require 'concurrent-ruby'
 require_relative 'commands'
 require_relative 'client'
 

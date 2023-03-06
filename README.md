@@ -22,35 +22,35 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
         <td>Get a list of the connected machines</td>
     </tr>
     <tr>
-        <td nowrap>session ID/IP</td>
+        <td nowrap>session IP</td>
         <td>Use session with an IP address to start a reverse shell session. Enter "exit" to stop</td>
     </tr>
     <tr>
-        <td nowrap>get ID/IP FILE FORMAT</td>
+        <td nowrap>get IP FILE FORMAT</td>
         <td>Use get with an IP address followed by a file path and a format to download files. The format options are binary and text.</td>
     </tr>
     <tr>
-        <td nowrap>put ID/IP FILE FORMAT</td>
+        <td nowrap>put IP FILE FORMAT</td>
         <td>Use put with an IP address followed by a file path and a format to upload files. The format options are binary and text.</td>
     </tr>
     <tr>
-        <td nowrap>scan ID/IP</td>
+        <td nowrap>scan IP</td>
         <td>Scan all TCP ports on the client machine</td>
     </tr>
     <tr>
-        <td nowrap>latency ID/IP</td>
+        <td nowrap>latency IP</td>
         <td>Get the speed of the connection for a client machine in milliseconds.</td>
     </tr>
     <tr>
-        <td nowrap>programs ID/IP</td>
+        <td nowrap>programs IP</td>
         <td>Get a list of the running programs on a client machine.</td>
     </tr>
     <tr>
-        <td nowrap>uptime ID/IP</td>
+        <td nowrap>uptime IP</td>
         <td>Returns how long the client has been connected in minutes.</td>
     </tr>
     <tr>
-        <td nowrap>reboot ID/IP</td>
+        <td nowrap>reboot IP</td>
         <td>Reboots the client machine.</td>
     </tr>
     <tr>

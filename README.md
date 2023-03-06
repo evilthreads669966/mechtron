@@ -9,7 +9,7 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
 ## Useful Tips
 - You can aim a mechtron client at a mechtron server that doesn't exist yet.
 - A torified shell will interfere with mechtron.
-- You can use a client's ID anywhere you can use an IP address and vice versa.
+- Client ID and IP are interchangeable. You can use an ID anywhere you can use an IP.
 
 ## Commands
 <table>

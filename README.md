@@ -126,7 +126,7 @@ csrss.exe                      512 Console                    1      2,592 K
 winlogon.exe                   596 Console                    1      3,228 K
 services.exe                   616 Services                   0      6,212 K
 
-uptime 127.0.0.1
+uptime 0
 1.7 minutes
 exit
 exiting the server..

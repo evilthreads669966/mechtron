@@ -27,21 +27,21 @@ class Server
   @@help_table = Terminal::Table.new(:title => 'HELP', :headings => ['COMMAND', 'DESCRIPTION']) do |t|
     t << ['clients', 'List all of the connected machines']
     t << :separator
-    t << ['session IP', 'starts a reverse shell session. Enter "exit" to stop']
+    t << ['session ID/IP', 'starts a reverse shell session. Enter "exit" to stop']
     t << :separator
-    t << ['get IP FILE FORMAT', 'Download files. Format options are binary and text.']
+    t << ['get ID/IP FILE FORMAT', 'Download files. Format options are binary and text.']
     t << :separator
-    t << ['put IP FILE FORMAT', 'Upload files. Format options are binary and text.']
+    t << ['put ID/IP FILE FORMAT', 'Upload files. Format options are binary and text.']
     t << :separator
-    t << ['scan IP', 'Scan all of the ports on client machine']
+    t << ['scan ID/IP', 'Scan all of the ports on client machine']
     t << :separator
-    t << ['latency IP', 'Get the speed of the connection']
+    t << ['latency ID/IP', 'Get the speed of the connection']
     t << :separator
-    t << ['programs IP', 'Get a list of the running programs']
+    t << ['programs ID/IP', 'Get a list of the running programs']
     t << :separator
-    t << ['uptime IP', 'Uptime in minutes']
+    t << ['uptime ID/IP', 'Uptime in minutes']
     t << :separator
-    t << ['reboot IP', 'reboots the client']
+    t << ['reboot ID/IP', 'reboots the client']
     t << :separator
     t << ['help', 'shows the HELP menu']
     t << :separator
@@ -81,21 +81,21 @@ class Server
         when "clients"
           Commands.clients @clients
         when 'session'
-          client = findClientByIp(ip)
+          client = find_client ip
           if client
             Commands.session(client)
           else
             puts 'invalid IP'
           end
         when 'get'
-          client = findClientByIp(ip)
+          client = find_client ip
           if client
             Commands.get(client, file, format)
           else
             puts 'invalid IP'
           end
         when 'put'
-          client = findClientByIp(ip)
+          client = find_client ip
           if client
             Commands.put(client, file, format)
           else
@@ -104,35 +104,35 @@ class Server
         when 'help'
           puts @@help_table
         when 'scan'
-          client = findClientByIp ip
+          client = find_client ip
           if client
             Commands.scan client
           else
             puts 'invalid IP'
           end
         when 'latency'
-          client = findClientByIp ip
+          client = find_client ip
           if client
             Commands.latency client
           else
             puts 'invalid IP'
           end
         when 'programs'
-          client = findClientByIp ip
+          client = find_client ip
           if client
             Commands.programs client
           else
             puts 'invalid IP'
           end
         when 'uptime'
-          client = findClientByIp ip
+          client = find_client ip
           if client
             Commands.uptime client
           else
             puts 'invalid IP'
           end
         when 'reboot'
-          client = findClientByIp ip
+          client = find_client ip
           if client
             Commands.reboot client
           else
@@ -145,10 +145,27 @@ class Server
     end
   end
 
+  def find_client(id_or_ip)
+    if id_or_ip.include? '.'
+      client = findClientByIp(id_or_ip)
+    else
+      client = findClientById(id_or_ip)
+    end
+  end
+
   # returns the client matching the ip address
   def findClientByIp(ip)
     @clients.each do |client|
       if client.ip == ip
+        return client
+      end
+    end
+    return nil
+  end
+
+  def findClientById(id)
+    @clients.each do |client|
+      if client.id == id.to_i
         return client
       end
     end

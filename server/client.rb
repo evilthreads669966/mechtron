@@ -36,7 +36,12 @@ class Client
   end
 
   def gets()
-    return @sock.gets.chomp
+    response = @sock.gets
+    if response
+      return response.chomp
+    else
+      return nil
+    end
   end
 
   def to_s

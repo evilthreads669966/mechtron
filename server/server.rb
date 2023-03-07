@@ -22,7 +22,7 @@ require_relative 'client'
 # Handles connections and contains the clients
 class Server
   include Singleton
-  attr_accessor :clients_table
+  attr_accessor :clients
   @@instance = nil
   @@help_table = Terminal::Table.new(:title => 'HELP', :headings => ['COMMAND', 'DESCRIPTION']) do |t|
     t << ['clients', 'List all of the connected machines']

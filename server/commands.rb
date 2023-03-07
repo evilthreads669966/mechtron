@@ -31,7 +31,7 @@ class Commands
           rescue
             puts "#{client.to_s} disconnected\r"
             client.sock.close
-            Server.instance.clients_table.delete client
+            Server.instance.clients.delete client
             t.exit
             break
           end
@@ -50,7 +50,10 @@ class Commands
         end
         client.puts command
         loop do
-          response = client.gets.strip
+          response = client.gets
+          unless response
+            break
+          end
           if response == 'done'
             break
           end

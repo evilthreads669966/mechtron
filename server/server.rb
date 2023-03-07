@@ -178,7 +178,7 @@ class Server
   end
 
 
-
+#its not really a heartbeat. more in reverse.
   def clients_heartbeat
     Thread.new do
       loop do

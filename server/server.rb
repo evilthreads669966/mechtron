@@ -22,7 +22,7 @@ require_relative 'client'
 # Handles connections and contains the clients
 class Server
   include Singleton
-  attr_accessor :clients
+  attr_accessor :clients_table
   @@instance = nil
   @@help_table = Terminal::Table.new(:title => 'HELP', :headings => ['COMMAND', 'DESCRIPTION']) do |t|
     t << ['clients', 'List all of the connected machines']
@@ -83,7 +83,7 @@ class Server
         end
         case command.downcase
         when "clients"
-          Commands.clients @clients
+          Commands.clients_table @clients
         when 'session'
           client = find_client ip
           if client

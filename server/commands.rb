@@ -31,7 +31,7 @@ class Commands
           rescue
             puts "#{client.to_s} disconnected\r"
             client.sock.close
-            Server.instance.clients.delete client
+            Server.instance.clients_table.delete client
             t.exit
             break
           end
@@ -163,7 +163,7 @@ class Commands
   end
 
   # Prints out a list of the connected clients
-  def self.clients(clients)
+  def self.clients_table(clients)
     clients.sort_by(&:id)
     clients.each do |client|
       begin

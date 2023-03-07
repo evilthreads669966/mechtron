@@ -18,7 +18,7 @@ require 'socket'
 require 'singleton'
 require_relative 'commands'
 require_relative 'client'
-
+require_relative 'constants'
 # Handles connections and contains the clients
 class Server
   include Singleton
@@ -56,7 +56,7 @@ class Server
   def start
     Thread.new do
       puts "starting server on port #{@port}"
-      puts
+      puts "version #{$VERSION}"
       puts 'Useful tip: You can use the client ID in place of the IP!'
       puts
       server = TCPServer.new(@port)

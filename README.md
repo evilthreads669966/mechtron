@@ -1,5 +1,5 @@
 # Mechtron
-A RAT tool. Mechtron allows you to remotely administrate computers and transfer files.
+A RAT tool. Mechtron allows you to administrate computers remotely and transfer files.
 
 Mechtron runs on port 6666. It can handle multiple clients, but one session at a time. Meaning you can have one reverse shell instance at a time. I plan on publishing a debian package, but for now, you'll have to deal with the source folders.
 

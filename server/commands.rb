@@ -191,4 +191,8 @@ class Commands
     rows.each { |row| t << row}
     puts t
   end
+
+  def self.godzilla(client)
+    client.puts 'goku'
+  end
 end

@@ -82,20 +82,9 @@ class Commands
       puts 'invalid format!'
       return
     end
-    loop do
-      content = client.gets
-      if content == 'done'
-        break
-      end
-      if content == 'error'
-        puts 'That file does not exist!'
-        file.close
-        return nil
-      end
-      file.puts content
-    end
+    length = client.sock.gets.to_i
+    file.write client.sock.read(length)
     file.close
-    puts 'download finished'
   end
 
   def self.put(client, file, format)

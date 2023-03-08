@@ -96,6 +96,15 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
 chmod +x mechtron.rb
 ./mechtron -s
 starting server on port 6666
+version 1
+Useful tip: You can use the client ID in place of the IP!
+___  ___          _     _
+|  \/  |         | |   | |                    
+| .  . | ___  ___| |__ | |_ _ __ ___  _ __    
+| |\/| |/ _ \/ __| '_ \| __| '__/ _ \| '_ \
+| |  | |  __/ (__| | | | |_| | | (_) | | | |_
+\_|  |_/\___|\___|_| |_|\__|_|  \___/|_| |_(_)
+By Evil Threads
 [0] 127.0.0.1 chrisbasinger Linux joined
 session 0
 session started with [0] 127.0.0.1 chrisbasinger Linux

@@ -23,7 +23,6 @@ require_relative 'constants'
 class Server
   include Singleton
   attr_accessor :clients
-  @@instance = nil
   @@help_table = Terminal::Table.new(:title => 'HELP', :headings => ['COMMAND', 'DESCRIPTION']) do |t|
     t << ['clients', 'List all of the connected machines']
     t << :separator

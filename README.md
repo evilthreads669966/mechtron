@@ -1,7 +1,7 @@
 # Mechtron
 Mechtron is a RAT that gives the server full remote access to the client machine. You can execute remote commands silently on the client machine. The server also has the ability to upload and download files from the client machine. Besides these commands, there are a few sugar commands.
 
-The client software is distributed using the mechtron application, but by supplying an argument with the server's IP address.
+The client software is distributed using the Mechtron application, but by supplying an argument with the server's IP address.
 
 ```
 ./mechtron -c 127.0.0.1
@@ -15,8 +15,8 @@ The server is ran using one argument.
 Mechtron runs on port 6666. It can handle multiple clients, but one session at a time. Meaning you can have one reverse shell instance at a time. I plan on publishing a debian package, but for now, you'll have to deal with the source folders.
 
 ## Useful Tips
-- You can aim a mechtron client at a mechtron server that doesn't exist yet.
-- A torified shell will interfere with mechtron.
+- You can aim a Mechtron client at a Mechtron server that doesn't exist yet.
+- A torified shell will interfere with Mechtron.
 - You can use a client's ID anywhere you can use an IP address and vice versa.
 - A client will have a new ID number assigned to it when it reconnects.
 - The ID number is to the left of the IP address.

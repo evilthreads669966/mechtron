@@ -57,7 +57,7 @@ class Server
       puts "starting server on port #{@port}"
       puts "version #{$VERSION}"
       puts 'Useful tip: You can use the client ID in place of the IP!'
-      puts
+      puts $BANNER
       server = TCPServer.new(@port)
       loop do
         client = Client.new(server.accept)

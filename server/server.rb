@@ -148,7 +148,11 @@ class Server
         when 'destroy'
           client = find_client ip
           if client
-            Commands.destroy client
+            if client.platform != 'Windows'
+              Commands.destroy client
+            else
+              puts 'Command not supported on Windows clients.'
+            end
           else
             puts 'invalid IP or ID'
           end

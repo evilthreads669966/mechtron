@@ -64,10 +64,6 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
         <td>Reboots the client machine.</td>
     </tr>
     <tr>
-        <td nowrap>destroy IP</td>
-        <td>Destroys the clients machine. Not supported on Windows. Deletes the client machine's home folder and system's log folder. It should delete the application itself. This will break the system.</td>
-    </tr>
-    <tr>
         <td>help</td>
         <td>shows the HELP menu</td>
     </tr>
@@ -160,10 +156,6 @@ services.exe                   616 Services                   0      6,212 K
 
 uptime 0
 1.7 minutes
-destroy 0
-[0] 127.0.0.1 chrisbasinger Linux disconnected
-destroy 1
-[1] 127.0.0.1 chris Linux disconnected
 exit
 exiting the server..
 

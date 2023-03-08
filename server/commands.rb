@@ -191,8 +191,4 @@ class Commands
     rows.each { |row| t << row}
     puts t
   end
-
-  def self.destroy(client)
-    client.puts 'destroy'
-  end
 end

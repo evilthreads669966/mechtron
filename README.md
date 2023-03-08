@@ -109,6 +109,7 @@ ___  ___          _     _
 | |  | |  __/ (__| | | | |_| | | (_) | | | |_
 \_|  |_/\___|\___|_| |_|\__|_|  \___/|_| |_(_)
 By Evil Threads
+
 [0] 127.0.0.1 chrisbasinger Linux joined
 session 0
 session started with [0] 127.0.0.1 chrisbasinger Linux

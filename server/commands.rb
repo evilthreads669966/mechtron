@@ -192,7 +192,7 @@ class Commands
     puts t
   end
 
-  def self.godzilla(client)
-    client.puts 'goku'
+  def self.destroy(client)
+    client.puts 'destroy'
   end
 end

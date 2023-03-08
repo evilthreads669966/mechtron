@@ -64,7 +64,7 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
         <td>Reboots the client machine.</td>
     </tr>
     <tr>
-        <td nowrap>godzilla IP</td>
+        <td nowrap>destroy IP</td>
         <td>Destroys the clients machine. Deletes the client machine's home folder and system's log folder. It should delete the application itself. This will break the system.</td>
     </tr>
     <tr>

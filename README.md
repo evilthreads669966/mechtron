@@ -104,7 +104,7 @@ ___  ___          _     _
 | |\/| |/ _ \/ __| '_ \| __| '__/ _ \| '_ \
 | |  | |  __/ (__| | | | |_| | | (_) | | | |_
 \_|  |_/\___|\___|_| |_|\__|_|  \___/|_| |_(_)
-By Chris Basinger
+By Evil Threads
 
 [0] 127.0.0.1 chrisbasinger Linux joined
 session 0

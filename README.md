@@ -160,9 +160,9 @@ services.exe                   616 Services                   0      6,212 K
 
 uptime 0
 1.7 minutes
-gozilla 0
+destroy 0
 [0] 127.0.0.1 chrisbasinger Linux disconnected
-gozilla 1
+destroy 1
 [1] 127.0.0.1 chris Linux disconnected
 exit
 exiting the server..

@@ -58,6 +58,7 @@ class Server
       puts "version #{$VERSION}"
       puts 'Useful tip: You can use the client ID in place of the IP!'
       puts $BANNER
+      puts 'By Evil Threads'
       server = TCPServer.new(@port)
       loop do
         client = Client.new(server.accept)

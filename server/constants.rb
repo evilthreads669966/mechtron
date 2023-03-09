@@ -15,7 +15,7 @@ limitations under the License.
 =end
 
 $VERSION = 1
-
+$AUTHOR = 'Evil Threads'
 $BANNER = "  __  __           _     _                   
  |  \\/  |         | |   | |                  
  | \\  / | ___  ___| |__ | |_ _ __ ___  _ __  

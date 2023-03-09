@@ -57,7 +57,7 @@ class Server
     puts "version #{$VERSION}"
     puts 'Useful tip: You can use the client ID in place of the IP!'
     puts $BANNER
-    puts 'By Evil Threads'
+    puts "By #{$AUTHOR}"
     puts
     Thread.new do
       server = TCPServer.new(@port)

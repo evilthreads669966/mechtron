@@ -1,5 +1,5 @@
 # Mechtron
-Mechtron is a RAT that gives the server full remote access to the client machine. You can execute remote commands silently on the client machine. The server also has the ability to upload and download files from the client machine. Besides these commands, there are a few sugar commands.
+Mechtron is a RAT that gives the server full remote access to the client machine. You can execute remote commands silently on the client machine. The server also has the ability to upload and download files from the client machine. Besides these commands, there are a few sugar commands. Mechtron can handle multiple clients at one time. Mechtron is used to form a network of computers that allows the server to operate on them. You can only work with one computer at a time.
 
 The client software is distributed using the Mechtron application, but by supplying an argument with the server's IP address.
 

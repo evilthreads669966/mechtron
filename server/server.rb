@@ -42,6 +42,8 @@ class Server
     t << :separator
     t << ['reboot IP', 'reboots the client']
     t << :separator
+    t << ['clear', 'clears the screen']
+    t << :separator
     t << ['help', 'shows the HELP menu']
     t << :separator
     t << ['exit', 'Closes Mechtron application']
@@ -143,6 +145,8 @@ class Server
           else
             puts 'invalid IP or ID'
           end
+        when 'clear'
+          system 'clear'
         else
           puts 'invalid command'
         end

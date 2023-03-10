@@ -22,6 +22,7 @@ Mechtron runs on port 6666. It can handle multiple clients, but one session at a
 - You can use a client's ID anywhere you can use an IP address and vice versa.
 - A client will have a new ID number assigned to it when it reconnects.
 - The ID number is to the left of the IP address.
+- if you follow the client script name with '&' it will run it in the background.
 
 ## Commands
 <table>

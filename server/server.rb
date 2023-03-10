@@ -33,7 +33,7 @@ class Server
   def start
     puts "starting server on port #{@port}"
     puts "version #{$VERSION}"
-    puts 'Useful tip: You can use the client ID in place of the IP!'
+    puts $TIP
     puts $BANNER
     puts "By #{$AUTHOR}"
     puts

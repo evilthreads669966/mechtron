@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License .
 =end
-
+require 'mutex_m'
 require_relative 'client'
 # This class contains the commands foor which you are able to execute on the server
 class Commands
@@ -31,7 +31,9 @@ class Commands
           rescue
             puts "#{client.to_s} disconnected\r"
             client.sock.close
-            Server.instance.clients.delete client
+            Server.mutex.synchronize do
+              Server.instance.clients.delete client
+            end
             t.exit
             break
           end

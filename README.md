@@ -4,7 +4,7 @@ Mechtron is a RAT that gives the server full remote access to the client machine
 The client software is distributed using the Mechtron application, but by supplying an argument with the server's IP address.
 
 ```
-./mechtron -c 127.0.0.1
+sudo ./mechtron -c 127.0.0.1
 ```
 
 The server is ran using one argument.

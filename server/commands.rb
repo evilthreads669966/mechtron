@@ -88,6 +88,7 @@ class Commands
     length = client.sock.gets.to_i
     file.write client.sock.read(length)
     file.close
+    puts 'Download finished'
   end
 
   def self.put(client, file, format)

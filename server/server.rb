@@ -71,21 +71,27 @@ class Server
         when "clients"
           Commands.clients_table @clients
         when 'session'
-          client = find_client ip
+          if ip
+            client = find_client ip
+          end
           if client
             Commands.session(client)
           else
             puts 'invalid IP or ID'
           end
         when 'get'
-          client = find_client ip
+          if ip
+            client = find_client ip
+          end
           if client
             Commands.get(client, file, format)
           else
             puts 'invalid IP or ID'
           end
         when 'put'
-          client = find_client ip
+          if ip
+            client = find_client ip
+          end
           if client
             Commands.put(client, file, format)
           else
@@ -94,35 +100,45 @@ class Server
         when 'help'
           puts $HELP_TABLE
         when 'scan'
-          client = find_client ip
+          if ip
+            client = find_client ip
+          end
           if client
             Commands.scan client
           else
             puts 'invalid IP or ID'
           end
         when 'latency'
-          client = find_client ip
+          if ip
+            client = find_client ip
+          end
           if client
             Commands.latency client
           else
             puts 'invalid IP or ID'
           end
         when 'programs'
-          client = find_client ip
+          if ip
+            client = find_client ip
+          end
           if client
             Commands.programs client
           else
             puts 'invalid IP or ID'
           end
         when 'uptime'
-          client = find_client ip
+          if ip
+            client = find_client ip
+          end
           if client
             Commands.uptime client
           else
             puts 'invalid IP or ID'
           end
         when 'reboot'
-          client = find_client ip
+          if ip
+            client = find_client ip
+          end
           if client
             Commands.reboot client
           else

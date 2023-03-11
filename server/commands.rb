@@ -30,6 +30,7 @@ class Commands
             TCPSocket.new(client.ip, 7777).close
           rescue
             puts "#{client.to_s} disconnected\r"
+            puts 'closing session'
             client.sock.close
             Server.mutex.synchronize do
               Server.instance.clients.delete client

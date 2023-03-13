@@ -104,9 +104,9 @@ class Commands
       return
     end
     if format == 'binary'
-      file = File.open(file, 'rb')
+      content = File.binread file
     elsif format == 'text'
-      file = File.open(file, 'r')
+      content = File.read file
     else
       puts 'invalid format'
     end

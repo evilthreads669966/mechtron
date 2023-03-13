@@ -54,7 +54,7 @@ class Server
         end
       end
     end
-    clients_heartbeat
+    # clients_heartbeat
     handle_commands
   end
 
@@ -179,29 +179,6 @@ class Server
       end
     end
     return nil
-  end
-
-
-#its not really a heartbeat. more in reverse.
-  def clients_heartbeat
-    Thread.new do
-      loop do
-        sleep 1
-        @clients.each do |client|
-          begin
-            TCPSocket.new(client.ip, 7777).close
-          rescue Errno::ECONNREFUSED
-            if !client.in_session
-              puts "#{client.to_s} disconnected"
-              client.sock.close
-              @@mutex.synchronize do
-                @clients.delete client
-              end
-            end
-          end
-        end
-      end
-    end
   end
 
   def self.mutex

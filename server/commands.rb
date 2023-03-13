@@ -110,10 +110,8 @@ class Commands
     else
       puts 'invalid format'
     end
-    content = file.gets
-    file.close
+    client.puts content.length
     client.puts content
-    client.puts 'done'
     puts 'upload finished'
   end
 

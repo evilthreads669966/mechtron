@@ -17,7 +17,7 @@ limitations under the License.
 require 'socket'
 # class responsible for holding client information
 class Client
-  attr_accessor :name, :in_session, :platform
+  attr_accessor :name, :platform
   attr_reader :id, :ip, :sock, :time
   @@counter = 0
   def initialize(sock)
@@ -26,7 +26,6 @@ class Client
     @ip = sock.peeraddr(false)[3]
     @@counter += 1
     @name = nil
-    @in_session = false
     @time = Time.now.to_i
     @platform = nil
   end

@@ -16,7 +16,6 @@ limitations under the License.
 require 'terminal-table'
 require 'socket'
 require 'singleton'
-require 'mutex_m'
 require_relative 'commands'
 require_relative 'client'
 require_relative 'constants'
@@ -25,7 +24,6 @@ require_relative 'constants'
 class Server
   include Singleton
   attr_accessor :clients
-  @@mutex = Mutex.new
 
   def initialize(port = 6666)
     @clients = []
@@ -47,9 +45,7 @@ class Server
         Thread.new do
           client.name = client.gets
           client.platform = client.gets
-          @@mutex.synchronize do
-            @clients << client
-          end
+          @clients << client
           puts "#{client.to_s} joined"
         end
       end
@@ -179,9 +175,5 @@ class Server
       end
     end
     return nil
-  end
-
-  def self.mutex
-    @@mutex
   end
 end

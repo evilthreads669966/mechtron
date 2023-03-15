@@ -34,7 +34,8 @@ OptionParser.new do |opts|
 end.parse!
 
 if options.has_key?(:server) && !options.has_key?(:client)
-  Server.instance.start
+
+  Server.new.start
 elsif options.has_key?(:client) && !options.has_key?(:server)
   ip = options[:client]
   rat(ip)

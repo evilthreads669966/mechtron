@@ -15,14 +15,12 @@ limitations under the License.
 =end
 require 'terminal-table'
 require 'socket'
-require 'singleton'
 require_relative 'commands'
 require_relative 'client'
 require_relative 'constants'
 
 # Handles connections and contains the clients
 class Server
-  include Singleton
   attr_accessor :clients
 
   def initialize(port = 6666)

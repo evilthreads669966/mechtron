@@ -28,7 +28,13 @@ class Commands
         client.sock.puts 'exit'
         break
       end
-      client.sock.puts command
+      begin
+        client.sock.puts command
+      rescue Errno::EPIPE
+        Server.instance.clients.delete client
+        puts "#{client.to_s} disconnected"
+        break
+      end
       loop do
         response = client.sock.gets.chomp
         unless response

@@ -18,33 +18,30 @@ require_relative 'client'
 class Commands
 
   def self.session(client)
-    t = Thread.new do
-      client.puts 'session'
-      puts "session started with #{client.to_s}"
+    client.sock.puts 'session'
+    puts "session started with #{client.to_s}"
+    loop do
+      print '$ '
+      command = STDIN.gets.chomp
+      if command.downcase == 'exit'
+        puts 'closing session'
+        client.sock.puts 'exit'
+        break
+      end
+      client.sock.puts command
       loop do
-        print '$ '
-        command = STDIN.gets.chomp
-        if command.downcase == 'exit'
-          puts 'closing session'
-          client.puts 'exit'
+        response = client.sock.gets.chomp
+        unless response
           break
         end
-        client.puts command
-        loop do
-          response = client.gets
-          unless response
-            break
-          end
-          if response == 'done'
-            break
-          end
-          unless response.empty?
-            puts response
-          end
+        if response == 'done'
+          break
+        end
+        unless response.empty?
+          puts response
         end
       end
     end
-    t.join
   end
 
   def self.get(client, file, format)

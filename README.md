@@ -16,6 +16,11 @@ The server is ran using one argument.
 
 Mechtron runs on ports 6666/tcp and 6667/tcp. It can handle multiple clients, but one session at a time. Meaning you can have one reverse shell instance at a time. I plan on publishing a debian package, but for now, you'll have to deal with the source folders.
 
+Make sure to open ports 6666/tcp and 6667/tcp
+```
+sudo ufw allow 6666:66667/tcp
+```
+
 ## Useful Tips
 - You can aim a Mechtron client at a Mechtron server that doesn't exist yet.
 - A torified shell will interfere with Mechtron.

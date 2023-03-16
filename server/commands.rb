@@ -68,9 +68,7 @@ class Commands
       end
       server = TCPServer.new 6667
       socket = server.accept
-      while line = socket.gets
-        file.write line
-      end
+      socket.each{ |line| file.write line }
       file.close
       socket.close
       server.close

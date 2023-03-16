@@ -100,6 +100,9 @@ Mechtron runs on ports 6666/tcp and 6667/tcp. It can handle multiple clients, bu
 
 ### Server
 ```
+sudo ufw allow 6666:6667/tcp
+Rule added
+Rule added (v6)
 chmod +x mechtron.rb
 ./mechtron -s
 starting server on port 6666

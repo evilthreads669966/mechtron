@@ -74,7 +74,7 @@ class Server
           if client
             Commands.session(client)
           else
-            puts 'invalid IP or ID'
+            puts 'client does not exist'
           end
         when 'get'
           if ip
@@ -83,7 +83,7 @@ class Server
           if client
             Commands.get(client, file, format)
           else
-            puts 'invalid IP or ID'
+            puts 'client does not exist'
           end
         when 'put'
           if ip
@@ -92,7 +92,7 @@ class Server
           if client
             Commands.put(client, file, format)
           else
-            puts 'invalid IP or ID'
+            puts 'client does not exist'
           end
         when 'help'
           puts $HELP_TABLE
@@ -103,7 +103,7 @@ class Server
           if client
             Commands.scan client
           else
-            puts 'invalid IP or ID'
+            puts 'client does not exist'
           end
         when 'latency'
           if ip
@@ -112,7 +112,7 @@ class Server
           if client
             Commands.latency client
           else
-            puts 'invalid IP or ID'
+            puts 'client does not exist'
           end
         when 'programs'
           if ip
@@ -121,7 +121,7 @@ class Server
           if client
             Commands.programs client
           else
-            puts 'invalid IP or ID'
+            puts 'client does not exist'
           end
         when 'uptime'
           if ip
@@ -130,7 +130,7 @@ class Server
           if client
             Commands.uptime client
           else
-            puts 'invalid IP or ID'
+            puts 'client does not exist'
           end
         when 'reboot'
           if ip
@@ -139,7 +139,7 @@ class Server
           if client
             Commands.reboot client
           else
-            puts 'invalid IP or ID'
+            puts 'client does not exist'
           end
         when 'clear'
           system 'clear'

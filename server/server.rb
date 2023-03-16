@@ -45,8 +45,10 @@ class Server
         Thread.new do
           client.name = client.gets
           client.platform = client.gets
-          @clients << client
-          puts "#{client.to_s} joined"
+          if client.name && client.platform
+            @clients << client
+            puts "#{client.to_s} joined"
+          end
         end
       end
     end

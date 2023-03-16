@@ -94,8 +94,12 @@ class Commands
     else
       puts 'invalid format'
     end
-    client.puts content.length
-    client.puts content
+    server = TCPServer(ip,6667)
+    socket = server.accept
+    socket.write content
+    socket.flush
+    socket.close
+    server.close
     puts 'upload finished'
   end
 

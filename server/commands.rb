@@ -65,9 +65,13 @@ class Commands
       puts 'invalid format!'
       return
     end
-    length = client.sock.gets.to_i
-    file.write client.sock.read length
+    server = TCPServer.new 6667
+    socket = server.accept
+    while line = socket.gets
+      file.write line
+    end
     file.close
+    socket.close
     puts 'Download finished'
   end
 

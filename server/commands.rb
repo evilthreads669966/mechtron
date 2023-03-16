@@ -72,6 +72,7 @@ class Commands
     end
     file.close
     socket.close
+    server.close
     puts 'Download finished'
   end
 

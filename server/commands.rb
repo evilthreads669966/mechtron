@@ -74,7 +74,7 @@ class Commands
       server.close
       puts 'Download finished'
     else
-      puts 'invalid arguments'
+      puts 'missing arguments'
     end
   end
 

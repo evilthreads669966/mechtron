@@ -14,7 +14,7 @@ The server is ran using one argument.
 ./mechtron -s
 ```
 
-Mechtron runs on port 6666. It can handle multiple clients, but one session at a time. Meaning you can have one reverse shell instance at a time. I plan on publishing a debian package, but for now, you'll have to deal with the source folders.
+Mechtron runs on port 6666/6667. It can handle multiple clients, but one session at a time. Meaning you can have one reverse shell instance at a time. I plan on publishing a debian package, but for now, you'll have to deal with the source folders.
 
 ## Useful Tips
 - You can aim a Mechtron client at a Mechtron server that doesn't exist yet.

@@ -52,7 +52,6 @@ class Server
         end
       end
     end
-    # clients_heartbeat
     handle_commands
   end
 

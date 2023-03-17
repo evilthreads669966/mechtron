@@ -152,15 +152,15 @@ class Server
 
   def find_client(ip)
     if ip.include? '.'
-      client = findClientByIp(ip)
+      client = find_client_by_ip(ip)
     else
-      client = findClientById(ip)
+      client = find_client_by_id(ip)
     end
     return client
   end
 
   # returns the client matching the ip address
-  def findClientByIp(ip)
+  def find_client_by_ip(ip)
     @clients.each do |client|
       if client.ip == ip
         return client
@@ -169,7 +169,7 @@ class Server
     return nil
   end
 
-  def findClientById(id)
+  def find_client_by_id(id)
     @clients.each do |client|
       if client.id == id.to_i
         return client

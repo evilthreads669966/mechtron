@@ -51,31 +51,31 @@ class Commands
   end
 
   def self.get(client, file, format)
-    if client && file && format
-      client.puts "get #{file} #{format}"
-      if file.include? '/'
-        splitter = '/'
-      else
-        splitter = '\\'
-      end
-      if format == 'binary'
-        file = File.new(file.split(splitter).last, 'wb')
-      elsif format == 'text'
-        file = File.new(file.split(splitter).last, 'w')
-      else
-        puts 'invalid format!'
-        return
-      end
-      server = TCPServer.new 6667
-      socket = server.accept
-      socket.each{ |line| file.write line }
-      file.close
-      socket.close
-      server.close
-      puts 'Download finished'
-    else
+    unless client && file && format
       puts 'missing arguments'
+      return
     end
+    client.puts "get #{file} #{format}"
+    if file.include? '/'
+      splitter = '/'
+    else
+      splitter = '\\'
+    end
+    if format == 'binary'
+      file = File.new(file.split(splitter).last, 'wb')
+    elsif format == 'text'
+      file = File.new(file.split(splitter).last, 'w')
+    else
+      puts 'invalid format!'
+      return
+    end
+    server = TCPServer.new 6667
+    socket = server.accept
+    socket.each{ |line| file.write line }
+    file.close
+    socket.close
+    server.close
+    puts 'Download finished'
   end
 
   def self.put(client, file, format)

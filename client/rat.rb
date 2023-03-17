@@ -56,7 +56,7 @@ def rat(ip)
         end
       when 'get'
         #read content
-        if File.exist? file && format
+        if File.exist? file
           if format == 'binary'
             content = File.binread file
           else

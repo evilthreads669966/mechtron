@@ -18,7 +18,7 @@ Mechtron runs on ports 6666/tcp and 6667/tcp. It can handle multiple clients, bu
 
 Make sure to open ports 6666/tcp and 6667/tcp on the computer you're running the server on
 ```
-sudo ufw allow 6666:66667/tcp
+sudo ufw allow 6666:6667/tcp
 ```
 
 ## Useful Tips

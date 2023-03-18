@@ -142,6 +142,15 @@ class Server
           else
             puts 'client does not exist'
           end
+        when 'delete'
+          if ip
+            client = find_client ip
+          end
+          if client
+            Commands.delete client
+          else
+            puts 'client does not exist'
+          end
         when 'clear'
           system 'clear'
         else

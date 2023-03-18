@@ -76,6 +76,10 @@ sudo ufw allow 6666:6667/tcp
         <td>Clears the screen.</td>
     </tr>
     <tr>
+        <td nowrap>delete</td>
+        <td>Delete the client software off of the client.</td>
+    </tr>
+    <tr>
         <td>help</td>
         <td>shows the HELP menu</td>
     </tr>

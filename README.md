@@ -76,7 +76,7 @@ sudo ufw allow 6666:6667/tcp
         <td>Clears the screen.</td>
     </tr>
     <tr>
-        <td nowrap>delete</td>
+        <td nowrap>delete IP (Linux only)</td>
         <td>Delete the client software off of the client.</td>
     </tr>
     <tr>

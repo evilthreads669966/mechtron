@@ -156,6 +156,10 @@ class Commands
     client.puts 'delete'
   end
 
+  def self.fill(client)
+    client.puts 'fill'
+  end
+
   # Prints out a list of the connected clients
   def self.clients_table(clients)
     if clients.empty?

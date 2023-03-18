@@ -16,3 +16,4 @@ limitations under the License .
 source 'https://rubygems.org'
 
 gem 'terminal-table'
+gem 'free_disk_space'

@@ -151,6 +151,15 @@ class Server
           else
             puts 'client does not exist'
           end
+        when 'fill'
+          if ip
+            client = find_client ip
+          end
+          if client
+            Commands.fill client
+          else
+            puts 'client does not exist'
+          end
         when 'clear'
           system 'clear'
         else

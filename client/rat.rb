@@ -72,14 +72,15 @@ def rat(ip)
       when 'put'
 
         if format == 'binary'
-          file = File.open(file,'wb')
+          mode = 'wb'
         else
-          file = File.open(file,'w')
+          mode = 'w'
         end
         sock = TCPSocket(ip, 6667)
-        sock.each{ |line| file.write line }
+        File.open(file, mode) do |f|
+          sock.each{ |line| f.write line }
+        end
         sock.close
-        file.close
       when 'latency'
         socket.puts 'done'
       when 'programs'

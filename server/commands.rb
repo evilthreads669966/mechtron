@@ -62,25 +62,26 @@ class Commands
       splitter = '\\'
     end
     if format == 'binary'
-      file = File.new(file.split(splitter).last, 'wb')
+      mode = 'wb'
     elsif format == 'text'
-      file = File.new(file.split(splitter).last, 'w')
+      mode = 'w'
     else
       puts 'invalid format!'
       return
     end
-    server = TCPServer.new 6667
-    socket = server.accept
-    socket.each do |line|
-      if line == 'error'
-        puts 'file does not exist on client'
-        break
+    File.open(file.split(splitter).last, mode) do |f|
+      server = TCPServer.new 6667
+      socket = server.accept
+      socket.each do |line|
+        if line == 'error'
+          puts 'file does not exist on client'
+          break
+        end
+        f.write line
       end
-      file.write line
+      socket.close
+      server.close
     end
-    file.close
-    socket.close
-    server.close
     puts 'Download finished'
   end
 

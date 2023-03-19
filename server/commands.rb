@@ -56,6 +56,7 @@ class Commands
       return
     end
     client.puts "get #{file} #{format}"
+    # determines whether it is a windows or linux file system
     if file.include? '/'
       splitter = '/'
     else

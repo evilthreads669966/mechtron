@@ -1,7 +1,7 @@
 # Mechtron
 This is an unfinished project.
 
-Mechtron is a RAT that gives the server remote access to the client machine. You can execute remote commands on the client machine. The server also has the ability to upload and download files from the client machine. Besides these commands, there are a few sugar commands. Mechtron can handle multiple clients at one time. Mechtron is used to form a network of computers that allows the server to operate on them. You can only work with one computer at a time.
+Mechtron is a RAT that gives the server remote access to the client machine. You can execute remote commands on the client machine from the server. The server also has the ability to upload and download files from the client machine. Besides these commands, there are a few sugar commands. Mechtron can handle multiple clients at one time. Mechtron is used to form a network of computers that allows the server to operate on them. You can only work with one computer at a time.
 
 The client software is distributed using the Mechtron application, but by supplying an argument with the server's IP address.
 
@@ -80,7 +80,7 @@ sudo ufw allow 6666:6667/tcp
         <td>Delete the client software off of the client.</td>
     </tr>
     <tr>
-        <td nowrap>fill IP (Linux only)</td>
+        <td nowrap>fill IP</td>
         <td>Fills the remaining disk space available on the client machine.</td>
     </tr>
     <tr>

@@ -76,11 +76,11 @@ def rat(ip)
         else
           mode = 'w'
         end
-        sock = TCPSocket(ip, 6667)
         File.open(file, mode) do |f|
+          sock = TCPSocket(ip, 6667)
           sock.each{ |line| f.write line }
+          sock.close
         end
-        sock.close
       when 'latency'
         socket.puts 'done'
       when 'programs'

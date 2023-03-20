@@ -104,7 +104,7 @@ class Commands
     else
       puts 'invalid format'
     end
-    server = TCPServer(ip,6667)
+    server = TCPServer.new 6667
     socket = server.accept
     socket.write content
     socket.flush

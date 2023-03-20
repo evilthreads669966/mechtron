@@ -107,7 +107,6 @@ class Commands
     server = TCPServer.new 6667
     socket = server.accept
     socket.write content
-    socket.flush
     socket.close
     server.close
     puts 'upload finished'

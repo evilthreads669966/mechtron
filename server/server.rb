@@ -43,8 +43,8 @@ class Server
       loop do
         client = Client.new(server.accept)
         Thread.new do
-          client.name = client.gets
-          client.platform = client.gets
+          client.name = client.sock.gets.chomp
+          client.platform = client.sock.gets.chomp
           if client.name && client.platform
             @clients << client
             puts "#{client.to_s} joined"

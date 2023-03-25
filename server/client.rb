@@ -30,19 +30,6 @@ class Client
     @platform = nil
   end
 
-  def puts(data)
-    @sock.puts data
-  end
-
-  def gets()
-    response = @sock.gets
-    if response
-      return response.chomp
-    else
-      return nil
-    end
-  end
-
   def to_s
     "[#{@id}] #{@ip} #{@name} #{@platform}"
   end

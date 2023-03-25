@@ -55,7 +55,7 @@ class Commands
       puts 'missing arguments'
       return
     end
-    client.puts "get #{file} #{format}"
+    client.sock.puts "get #{file} #{format}"
     # determines whether it is a windows or linux file system
     if file.include? '/'
       splitter = '/'
@@ -96,7 +96,7 @@ class Commands
       puts 'File does not exist!'
       return
     end
-    client.puts "put #{file.split(splitter).last} #{format}"
+    client.sock.puts "put #{file.split(splitter).last} #{format}"
     if format == 'binary'
       content = File.binread file
     elsif format == 'text'
@@ -125,17 +125,17 @@ class Commands
 
   def self.latency(client)
     start = Time.now
-    client.puts 'latency'
-    client.gets
+    client.sock.puts 'latency'
+    client.sock.gets
     finish = Time.now
     latency = finish - start
     puts "#{latency} milliseconds"
   end
 
   def self.programs(client)
-    client.puts 'programs'
+    client.sock.puts 'programs'
     loop do
-      response = client.gets
+      response = client.sock.gets.chomp
       if response == 'done'
         break
       end
@@ -150,15 +150,15 @@ class Commands
   end
 
   def self.reboot(client)
-    client.puts 'reboot'
+    client.sock.puts 'reboot'
   end
 
   def self.delete(client)
-    client.puts 'delete'
+    client.sock.puts 'delete'
   end
 
   def self.fill(client)
-    client.puts 'fill'
+    client.sock.puts 'fill'
   end
 
   # Prints out a list of the connected clients

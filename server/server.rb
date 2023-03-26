@@ -55,6 +55,8 @@ class Server
     handle_commands
   end
 
+  private
+
   # handles user input for executing commands
   def handle_commands
     loop do
